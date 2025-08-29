@@ -1,0 +1,95 @@
+.register-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  padding: 32px 16px;
+}
+.progress-line {
+  width: 170%; 
+  height: 10px;
+  background-color: #22c55e;
+  border-radius: 3px;
+}
+
+
+.intro-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.intro-video {
+  max-width: 700px;
+  border: none;
+  background: transparent;
+}
+
+.continue-btn {
+  padding: 16px 48px;
+  font-size: 18px;
+  background-color: #333;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.continue-btn:hover {
+  background-color: #000;
+  transform: scale(1.07);
+}
+
+.options-section {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.options-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.option-btn {
+  padding: 14px 28px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.option-btn.green {
+  background-color: #22c55e;
+}
+.option-btn.green:hover {
+  background-color: #16a34a;
+}
+
+.option-btn.purple {
+  background-color: #a855f7;
+}
+.option-btn.purple:hover {
+  background-color: #7e22ce;
+}
+
+.option-btn.red {
+  background-color: #ef4444;
+}
+.option-btn.red:hover {
+  background-color: #dc2626;
+}
