@@ -1,14 +1,21 @@
 import React from 'react'
 import './AboutUs.css'
-import FloatingCards from './FloatingCards'
+import FloatingCards from '../../Components/Cell/FloatingCards'
 
 
 function AboutUs() {
   return (
     <div>
+      <div className="animated-bg">
       <div className="first-container">
         <div className="first-left">
-         
+        <span className="ai-badge">
+            <svg width="16" height="16" fill="none" stroke="#FFA726" strokeWidth="2" viewBox="0 0 24 24" style={{marginRight: '6px'}}>
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 8v4l3 2" />
+            </svg>
+            AI Powered
+          </span>
           <h2 className="main-heading">Ace Interviews With PrepSphere</h2>
           <p className="sub-heading">
             Get role-specific questions, expand answers when you need them, dive deeper into concepts, and organize everything your way.
@@ -29,7 +36,7 @@ function AboutUs() {
       </div>
       <FloatingCards />
       <div>
-        
+      </div> 
       </div>
     </div>
   )
