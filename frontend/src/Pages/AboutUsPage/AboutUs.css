@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 4rem 0;
+  padding: 1rem 0 0rem 0; /* Further decreased top and bottom padding */
   gap: 0;
   min-height: 380px;
   width: 100%;
@@ -90,4 +90,25 @@
 .search-bar input::placeholder {
   color: #888;
   opacity: 1;
+}
+
+/* Add to AboutUs.css */
+.animated-bg {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-height: 700px;
+  z-index: 0;
+  background: linear-gradient(120deg, #fbffba 0%, #ffe4ba 40%, #f9ce89 70%, #e2bfa5 100%);
+  background-size: 200% 200%;
+  animation: animatedGradient 5s ease-in-out infinite alternate; /* Increased speed */
+}
+
+@keyframes animatedGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }
