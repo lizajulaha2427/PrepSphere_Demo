@@ -1,0 +1,50 @@
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;   /* ensures vertical alignment */
+  padding: 15px 60px;    /* more space left & right */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: none;
+}
+
+/* Remove default margins from h2 */
+.logo {
+  margin: 10px;  
+}
+
+.logo a {
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #222;
+}
+
+/* Nav container */
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-right: 10px;   /* extra right spacing */
+  margin-top: 30px;
+}
+
+/* Sign In button */
+.open-btn {
+  background: linear-gradient(to right, #fbbf24, #f97316);
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 10px 22px;   /* make button balanced */
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.open-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(249, 115, 22, 0.3);
+}

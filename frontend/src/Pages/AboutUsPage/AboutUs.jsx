@@ -1,12 +1,13 @@
 import React from 'react'
 import './AboutUs.css'
 import FloatingCards from '../../Components/Cell/FloatingCards'
-
+import Header from '../../Components/Tissue/Header'
 
 function AboutUs() {
   return (
     <div>
       <div className="animated-bg">
+      <Header></Header>
       <div className="first-container">
         <div className="first-left">
         <span className="ai-badge">
