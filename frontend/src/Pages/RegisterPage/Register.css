@@ -5,20 +5,22 @@
   justify-content: center; 
   padding: 32px 16px;
 }
+
+/* Progress Bar */
 .progress-line {
   width: 170%; 
   height: 10px;
   background-color: #22c55e;
   border-radius: 3px;
+  margin-bottom: 20px;
 }
 
-
+/* Video Section */
 .intro-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
-  margin-top: 40px;
+  margin-top: 15px;
 }
 
 .intro-video {
@@ -27,69 +29,126 @@
   background: transparent;
 }
 
+/* Buttons */
 .continue-btn {
-  padding: 16px 48px;
+  margin-top: 40px;
+  padding: 14px 36px;
   font-size: 18px;
-  background-color: #333;
-  color: white;
   font-weight: bold;
   border: none;
   border-radius: 50px;
+  background-color: #000000;
+  color: rgb(255, 255, 255);
   cursor: pointer;
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  transition: all 0.2s ease;
+}
+.continue-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+.continue-btn:hover:enabled {
+  background-color: #22c55e;
+  color: rgb(0, 0, 0);
+  transform: scale(1.05);
 }
 
-.continue-btn:hover {
-  background-color: #000;
-  transform: scale(1.07);
-}
-
+/* Options Section */
 .options-section {
   text-align: center;
-  margin-top: 60px;
+  margin-top: 40px;
+  max-width: 600px;
+  width: 100%;
 }
 
 .options-title {
-  font-size: 28px;
+  margin-bottom: 45px;
+  font-size: 26px;
   font-weight: bold;
-  margin-bottom: 20px;
 }
 
 .options-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 25px;
 }
 
-.option-btn {
-  padding: 14px 28px;
-  border: none;
-  color: white;
-  font-weight: bold;
-  font-size: 16px;
+.option-card {
+  width: 100%;
+  padding: 16px 20px;
+  border: 2px solid #ddd;
   border-radius: 12px;
+  background: #fff;
+  text-align: left;
+  font-size: 18px;
+  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
-.option-btn.green {
+.option-card:hover {
+  border-color: #000000;
+  background: #fff4d4;
+  transform: scale(1.02);
+}
+
+.option-card.selected {
+  border-color: #000000;
+  background: #f9ffb4;
+}
+
+.icon {
+  margin-right: 10px;
+}
+/* Progress Bar Container */
+.progress-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 700px;
+  margin-bottom: 0px;
+  position: relative;
+}
+
+/* Back Button */
+.back-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+/* Progress Bar */
+.progress-bar {
+  flex: 1;
+  height: 10px;
+  background-color: #eee;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
   background-color: #22c55e;
-}
-.option-btn.green:hover {
-  background-color: #16a34a;
+  transition: width 0.3s ease;
 }
 
-.option-btn.purple {
-  background-color: #a855f7;
-}
-.option-btn.purple:hover {
-  background-color: #7e22ce;
+/* Register Form */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.option-btn.red {
-  background-color: #ef4444;
+.register-form input {
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  font-size: 16px;
 }
-.option-btn.red:hover {
-  background-color: #dc2626;
+
+.register-form input:focus {
+  border-color: #22c55e;
+  outline: none;
 }
