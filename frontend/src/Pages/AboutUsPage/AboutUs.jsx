@@ -145,6 +145,7 @@ function AboutUs() {
 
 
         <div className="fourth-container">
+          <p className="fourth-header">Guided paths for every journey</p>
       {/* Tab Buttons */}
       <div className="tab-buttons">
         <button

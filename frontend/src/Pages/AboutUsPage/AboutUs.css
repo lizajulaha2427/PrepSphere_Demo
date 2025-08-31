@@ -118,7 +118,7 @@
   justify-content: center;
   padding: 50px;
   gap: 40px;
-  min-height: 100vh;
+  min-height: 90vh;
   
 }
 
@@ -195,6 +195,19 @@
   justify-content: center; /* centers vertically */
 }
 
+p.fourth-header {
+  font-size: 50px;
+  font-weight: 700;           /* makes it bold */
+  line-height: 1.1;           /* tighter spacing between lines */
+  letter-spacing: -1px;       /* slight compact look */
+  font-family: "Georgia", serif; /* or "Playfair Display" for a stylish serif */
+  color: #111;                /* dark but not pure black */
+  margin: 0 auto;             /* centers if inside a container */
+  text-align: center;         /* center align */
+  margin-bottom: 50px;
+}
+
+
 .tab-buttons {
   display: flex;
   justify-content: center;
@@ -205,7 +218,7 @@
 .tab-buttons button {
   background: #f1f1f1;
   border: none;
-  padding: 12px 22px; /* bigger buttons */
+  padding: 11px 20px; /* bigger buttons */
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -225,7 +238,7 @@
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  min-height: 400px; /* makes the content area taller */
+  min-height: 430px; /* makes the content area taller */
   gap: 40px;
 }
 
@@ -235,8 +248,8 @@
 }
 
 .tab-text h3 {
-  font-size: 28px;
-  margin-bottom: 20px;
+  font-size: 30px;
+  margin-bottom: 21px;
 }
 
 .tab-text ul {
@@ -245,7 +258,7 @@
 }
 
 .tab-text li {
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 12px;
   display: flex;
   align-items: center;
@@ -259,7 +272,7 @@
 .tab-content img,
 .tab-content video {
   max-width: 600px;
-  height: 350px; /* set a fixed height for uniform look */
+  height: 380px; /* set a fixed height for uniform look */
   object-fit: cover;
   margin-top: 10px;
   margin-left: 40px;
