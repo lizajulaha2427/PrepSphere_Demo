@@ -203,6 +203,50 @@ function AboutUs() {
     </div>
         
 
+        <div className="fifth-container">
+      <div className="testimonial-header">
+        <h2>Do you want to be the only <br></br>candidate that didn’t prepare?</h2>
+      </div>
+
+      <div className="testimonial-grid">
+        <div className="testimonial-card">
+          <img src="https://tse3.mm.bing.net/th/id/OIP.JvyHu2WracZxswwnCB6klgHaEK?pid=Api&P=0&h=180" alt="Katya Samson" />
+          <h3>Katya Samson</h3>
+          <p className="role">Dentist</p>
+          <p className="text">
+            Bossed really put me through my paces. It helped me get a job in a practice I love!
+          </p>
+        </div>
+
+        <div className="testimonial-card">
+          <img src="https://static.vecteezy.com/system/resources/previews/011/947/164/original/silver-user-icon-free-png.png" alt="Anonymous" />
+          <h3>Anonymous</h3>
+          <p className="role">Analyst</p>
+          <p className="text">
+            I was super nervous for my interview but practicing really helped!
+          </p>
+        </div>
+
+        <div className="testimonial-card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Jim_Parsons_2016.jpg" alt="Jim Paros" />
+          <h3>Jim Paros</h3>
+          <p className="role">Analyst</p>
+          <p className="text">
+            Using bossed was great. It allowed me to improve my skills!
+          </p>
+        </div>
+
+        <div className="testimonial-card">
+          <img src="https://tse1.mm.bing.net/th/id/OIP.QjynegEfQVPq5kIEuX9fWQHaFj?pid=Api&P=0&h=180" alt="Alison" />
+          <h3>Alison</h3>
+          <p className="role">Accountant</p>
+          <p className="text">
+            It was so good, the questions it asked were so clever! It really helped me.
+          </p>
+        </div>
+      </div>
+    </div>
+
       </div>
     </div>
   );
