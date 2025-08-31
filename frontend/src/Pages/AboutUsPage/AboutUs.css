@@ -15,24 +15,23 @@
 }
 
 .first-left {
-  width: 50%;                /* Decrease width from 50% to 35% */
+  width: 46%; /* Decrease width from 50% to 35% */
   display: flex;
   flex-direction: column;
-  align-items: flex-start;    /* Align text to the left */
+  align-items: flex-start; /* Align text to the left */
   justify-content: center;
   gap: 1.2rem;
-  padding-right: 2rem;
-  margin-left: 250px;             /* Remove extra left margin */
+  padding-right: 1.8rem;
+  margin-left: 250px;
 }
-
 .main-heading {
   font-size: 2.8rem;
   font-weight: 700;
   color: #162032;
   margin: 0;
   line-height: 1.1;
-  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-  text-align: left;           /* Align heading text to the left */
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  text-align: left; /* Align heading text to the left */
 }
 
 .sub-heading {
@@ -40,12 +39,12 @@
   color: #333;
   margin: 0;
   font-weight: 400;
-  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-  text-align: left;           /* Align subheading text to the left */
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  text-align: left; /* Align subheading text to the left */
 }
 
 .first-right {
-  width: 65%;                /* Increase right side to fill remaining space */
+  width: 65%; /* Increase right side to fill remaining space */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -58,7 +57,7 @@
   align-items: center;
   background: #fff;
   border-radius: 999px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   padding: 1.1rem 2rem;
   width: 100%;
   max-width: 420px;
@@ -68,7 +67,7 @@
 }
 
 .search-bar:focus-within {
-  box-shadow: 0 12px 32px rgba(0,0,0,0.13);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.13);
 }
 
 .search-icon {
@@ -99,9 +98,7 @@
   width: 100%;
   min-height: 700px;
   z-index: 0;
-  background: linear-gradient(120deg, #fbffba 0%, #ffe4ba 40%, #f9ce89 70%, #e2bfa5 100%);
-  background-size: 200% 200%;
-  animation: animatedGradient 5s ease-in-out infinite alternate; /* Increased speed */
+  background: #fbffba; /* Static light yellow color */
 }
 
 @keyframes animatedGradient {
