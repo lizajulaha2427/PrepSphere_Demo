@@ -5,20 +5,35 @@ const cards = [
   { id: 1, text: "Communication skills", icon: "👍" },
   { id: 2, text: "Job details imported", icon: "✅" },
   { id: 3, text: "CV uploaded", icon: "📄" },
-  { id:4,text:"Hello",icon:"🍀"},
+  { id: 4, text: "Hello", icon: "🍀" },
 ];
 
 function FloatingCards() {
   return (
     <div className="floating-cards-bg">
+      {/* gradient */}
+      <div className="gradient-center"></div>
+
+      {/* glass blur boxes */}
+      <div className="glass-box one"></div>
+      <div className="glass-box two"></div>
+      <div className="glass-box three"></div>
+      <div className="glass-box four"></div>
+
+      {/* main image */}
+      <img
+        src="https://framerusercontent.com/images/XcxDNm66JBmAEQsXrnuxWZrp4Go.png?scale-down-to=1024"
+        alt="Interview Preview"
+        className="floating-main-img"
+      />
+
+      {/* floating cards */}
       <div className="floating-cards-container">
         {cards.map((card, idx) => (
           <div
             className="floating-card"
             key={card.id}
-            style={{
-              animationDelay: `${idx * 0.2 + 0.2}s`
-            }}
+            style={{ animationDelay: `${idx * 0.2 + 0.2}s` }}
           >
             <span className="floating-card-icon">{card.icon}</span>
             <span>{card.text}</span>
