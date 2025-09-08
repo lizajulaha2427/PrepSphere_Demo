@@ -32,6 +32,7 @@
   line-height: 1.1;
   font-family: "Inter", "Segoe UI", Arial, sans-serif;
   text-align: left; /* Align heading text to the left */
+  z-index: 10;
 }
 
 .sub-heading {
@@ -41,6 +42,7 @@
   font-weight: 400;
   font-family: "Inter", "Segoe UI", Arial, sans-serif;
   text-align: left; /* Align subheading text to the left */
+  z-index: 10;
 }
 
 .first-right {
@@ -135,6 +137,7 @@
   width: 100%;
   max-width: 450px;
   border-radius: 16px;
+  z-index: 10;
 }
 
 /* Right side */
@@ -173,6 +176,7 @@
   -webkit-backdrop-filter: blur(12px);
 
   padding: 18px 20px;
+  z-index: 10;
   border-radius: 15px;
 
   /* Subtle shadow */

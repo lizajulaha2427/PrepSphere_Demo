@@ -20,9 +20,9 @@
   transform: translate(-50%, -50%);
   background: radial-gradient(
     circle,
-    rgba(120, 92, 255, 0.6) 0%,
-    rgba(255, 95, 173, 0.55) 35%,
-    rgba(255, 196, 87, 0.5) 60%,
+    #f97316 0%,
+    #ffe7ab 35%,
+    rgba(255, 225, 168, 0.5) 60%,
     transparent 100%
   );
   border-radius: 50%;
