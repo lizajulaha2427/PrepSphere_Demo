@@ -17,7 +17,7 @@ function AboutUs() {
         { icon: "📐", text: "Geometry Concepts" },
         { icon: "📊", text: "Probability & Statistics" },
       ],
-      media: "https://www.w3schools.com/html/mov_bbb.mp4",
+      media: "/Maths.mp4",
     },
     cs: {
       title: "CS & Programming",
@@ -191,7 +191,12 @@ function AboutUs() {
         {/* RIGHT SIDE: Media */}
         <div className="tab-media">
           {sections[active].media.endsWith(".mp4") ? (
-            <video controls>
+            <video
+              key={sections[active].media}  // 👈 force re-render when video changes
+              autoPlay
+              muted
+              loop
+            >
               <source src={sections[active].media} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
