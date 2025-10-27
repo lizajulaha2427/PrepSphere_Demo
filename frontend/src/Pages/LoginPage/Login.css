@@ -35,66 +35,47 @@
   color: #555;
 }
 
-/* Logo */
-.logo {
-  font-size: 48px;
-  margin-bottom: 10px;
-}
-
 /* Title */
 .modal-title {
   font-size: 24px;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
-/* Login buttons */
-.login-options {
+/* Login form */
+.login-form {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-.login-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 12px;
-  border-radius: 30px;
-  border: 1px solid #ddd;
-  background: #fff;
+.login-form input {
+  padding: 12px 15px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
   font-size: 16px;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  outline: none;
+  transition: border 0.2s ease-in-out;
 }
 
-.login-btn img {
-  width: 20px;
-  height: 20px;
+.login-form input:focus {
+  border: 2px solid #0066ff;
+}
+
+.login-btn {
+  padding: 12px;
+  border-radius: 25px;
+  border: none;
+  background-color: #0066ff;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
 }
 
 .login-btn:hover {
-  background: #f7f7f7;
-}
-
-/* Special button styles */
-.login-btn.google {
-  border: 2px solid #4285f4;
-}
-
-.login-btn.facebook {
-  border: 2px solid #3b5998;
-}
-
-.login-btn.apple {
-  border: 2px solid #000;
-}
-
-.login-btn.email {
-  background: #222;
-  color: #fff;
-  font-weight: bold;
+  background-color: #0051cc;
 }
 
 /* Signup text */

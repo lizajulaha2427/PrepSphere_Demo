@@ -2,20 +2,15 @@ import React, { useState } from "react";
 import { Laptop, Braces, Map, Briefcase, Sparkles, ArrowLeft } from "lucide-react";
 import "./Register.css";
 import { useNavigate } from "react-router-dom";
-
+import axios from "axios";
 
 const Register = () => {
   const [step, setStep] = useState(0); // 0 = video, 1 = goals, 2 = years, 3 = register
   const [selectedGoal, setSelectedGoal] = useState("");
   const [selectedYears, setSelectedYears] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
-
-  const handleSubmit = (e) => {
-    e.preventDefault(); // prevent form reload
-    // 👉 here you can handle saving form data, API calls etc.
-    navigate("/"); // redirect to home
-  };
 
   const goals = [
     { id: 1, text: "CS Fundamentals", icon: <Laptop className="icon" /> },
@@ -41,6 +36,37 @@ const Register = () => {
       setSelectedYears(selectedYears.filter((y) => y !== year));
     } else {
       setSelectedYears([...selectedYears, year]);
+    }
+  };
+
+  // Submit form
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const fullName = e.target[0].value;
+    const email = e.target[1].value;
+    const password = e.target[2].value;
+
+    const userData = {
+      fullName,
+      email,
+      password,
+      goal: selectedGoal,
+      years: selectedYears,
+    };
+
+   try {
+  setLoading(true);
+  const res = await axios.post("http://localhost:5000/api/auth/register", userData);
+
+  alert("✅ Registered successfully!");
+  // store server response (better than raw userData)
+  localStorage.setItem("user", JSON.stringify(res.data));
+  navigate("/"); // redirect to home
+} catch (err) {
+      alert(err.response?.data?.msg || "Registration failed");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -135,7 +161,9 @@ const Register = () => {
             <input type="text" placeholder="Full Name" required />
             <input type="email" placeholder="Email" required />
             <input type="password" placeholder="Password" required />
-            <button type="submit" className="continue-btn">Register</button>
+            <button type="submit" className="continue-btn" disabled={loading}>
+              {loading ? "Registering..." : "Register"}
+            </button>
           </form>
         </div>
       )}

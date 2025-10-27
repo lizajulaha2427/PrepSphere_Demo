@@ -1,28 +1,41 @@
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useState, useContext } from "react";
 import Login from "../../Pages/LoginPage/Login";
 import './Header.css';
+import { AuthContext } from "../../Context/AuthContext";
 
 export default function Header() {
   const [showModal, setShowModal] = useState(false);
+  const { user, login } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleProfileClick = () => navigate("/dashboard");
 
   return (
     <nav className="navbar">
-      {/* Name (Logo) links to About Us */}
       <h2 className="logo">
         <Link to="/">PrepSphere</Link>
       </h2>
 
       <div className="nav-links">
-        
-        {/* Sign In button triggers modal */}
-        <button className="open-btn" onClick={() => setShowModal(true)}>
-          Sign In/Register
-        </button>
+        {!user ? (
+          <button className="open-btn" onClick={() => setShowModal(true)}>
+            Sign In/Register
+          </button>
+        ) : (
+          <div className="profile-section">
+            <span className="profile-icon" onClick={handleProfileClick}>
+              &#128100;
+            </span>
+          </div>
+        )}
       </div>
 
-      {/* Login Modal */}
-      <Login showModal={showModal} onClose={() => setShowModal(false)} />
+      <Login
+        showModal={showModal}
+        onClose={() => setShowModal(false)}
+        onLogin={login} // use context login
+      />
     </nav>
   );
 }

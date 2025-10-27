@@ -1,0 +1,262 @@
+/* ========== GLOBAL STYLES ========== */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: #f9fcff;
+  /* background: linear-gradient(to right, #fbbf24, #f97316); */
+  background-size: 120px;
+  background-repeat: repeat;
+  height: 100vh;        
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #222;
+  border-radius: 3px;
+}
+
+/* ========== ROADMAP ========== */
+.roadmap-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 60px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 20%;
+  padding-left: 15px;
+}
+
+.step-card {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  border: 2px solid #d1d144;
+  border-radius: 10px;
+  padding: 12px 18px;
+  background: #fff;
+  font-weight: 500;
+  transition: 0.3s;
+  margin-top: 40px;
+}
+
+.step-card:hover {
+  background: #f0fdff;
+  box-shadow: 0 0 10px rgba(0, 224, 255, 0.4);
+}
+
+.step-icon {
+  font-size: 20px;
+  color: #00e0ff;
+}
+
+.roadmap-path {
+  flex: 1;
+  padding-left: 50px;
+  position: relative;
+}
+
+.title {
+  font-size: 50px;
+  font-weight: 900;
+  color: #222;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.path {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 100px;
+}
+
+.circle {
+  width: 150px;
+  height: 150px;
+  border: 4px solid #e4e486;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(205, 223, 101, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s ease-in-out; /* smooth animation */
+}
+
+.circle img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  transition: all 0.3s ease-in-out; /* smooth image animation */
+}
+
+.circle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 60px;
+  height: 4px;
+  background:#e6e66f;
+  transform: translateY(-50%);
+  z-index: -1;
+  box-shadow: 0 0 8px rgba(213, 209, 80, 0.7);
+}
+
+.circle:hover {
+  transform: scale(1.1); /* enlarge circle */
+  border-color: #ff4c4c;
+  box-shadow: 0 0 25px rgba(255, 100, 50, 0.9); /* glowing effect */
+}
+
+.circle:hover img {
+  transform: scale(1.25) translateY(-12px); /* bada + upar uth ke aaye */
+  filter: drop-shadow(0 8px 15px rgba(255, 100, 50, 0.7)); /* glow under image */
+}
+
+
+.circle:last-child::after {
+  display: none;
+}
+
+.circle.active span {
+  position: absolute;
+  top: 80px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #222;
+}
+
+.next-btn {
+  margin-top: 200px;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: bold;
+  background: #fff;
+  border: 2px solid #99992e;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 10px rgba(217, 231, 89, 0.6);
+  margin-left: 400px;
+}
+
+.next-btn:hover {
+  border-color: #ff4c4c;
+  color: #ff4c4c;
+  transform: scale(1.1) translateY(-6px); /* bada + upar uth ke aaye */
+  box-shadow: 0 8px 20px rgba(255, 76, 76, 0.7), 
+              0 0 30px rgba(255, 120, 80, 0.6); /* strong glow effect */
+}
+
+
+/* Tablets */
+@media (max-width: 992px) {
+  body {
+    overflow-y: auto; /* allow scroll only on smaller screens */
+  }
+
+  .roadmap-container {
+    flex-direction: column;
+    padding: 40px 20px;
+    align-items: center;
+  }
+
+  .steps-list {
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-left: 0;
+    gap: 15px;
+  }
+
+  .roadmap-path {
+    padding-left: 0;
+    margin-top: 40px;
+  }
+
+  .path {
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .circle {
+    width: 120px;
+    height: 120px;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .next-btn {
+    margin-top: 100px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .title {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .steps-list {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .path {
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 60px;
+  }
+
+  .circle {
+    width: 100px;
+    height: 100px;
+  }
+
+  .circle::after {
+    display: none;
+  }
+
+  .next-btn {
+    margin-top: 60px;
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}

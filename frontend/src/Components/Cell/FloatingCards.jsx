@@ -22,7 +22,7 @@ function FloatingCards() {
 
       {/* main image */}
       <img
-        src="https://framerusercontent.com/images/XcxDNm66JBmAEQsXrnuxWZrp4Go.png?scale-down-to=1024"
+        src="https://cdn.prod.website-files.com/679159b0ee761d7c6714fd7f/6847e20c38695282ae91fd09_Interview%20Feedback.jpg"
         alt="Interview Preview"
         className="floating-main-img"
       />

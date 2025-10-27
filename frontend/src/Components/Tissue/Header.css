@@ -48,3 +48,11 @@
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(249, 115, 22, 0.3);
 }
+
+.profile-icon {
+  font-size: 24px;       /* size of the icon */
+  cursor: pointer;
+  color: #fff;           /* change as per your theme */
+  padding: 5px 10px;
+}
+
