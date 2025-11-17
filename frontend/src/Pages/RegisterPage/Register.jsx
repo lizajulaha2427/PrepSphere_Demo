@@ -57,7 +57,7 @@ const Register = () => {
 
    try {
   setLoading(true);
-  const res = await axios.post("http://localhost:5000/api/auth/register", userData);
+  const res = await axios.post("http://localhost:4000/api/auth/register", userData);
 
   alert("✅ Registered successfully!");
   // store server response (better than raw userData)
