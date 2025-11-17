@@ -18,9 +18,13 @@ export function AuthProvider({ children }) {
     }
   }, []);
 
-  const login = (userData) => {
-    localStorage.setItem("user", JSON.stringify(userData));
-    setUser(userData);
+  // FIXED LOGIN FUNCTION
+  const login = (resData) => {
+    // backend sends: { msg, user: {...} }
+    const realUser = resData.user ? resData.user : resData;
+
+    localStorage.setItem("user", JSON.stringify(realUser));
+    setUser(realUser);
   };
 
   const logout = () => {
