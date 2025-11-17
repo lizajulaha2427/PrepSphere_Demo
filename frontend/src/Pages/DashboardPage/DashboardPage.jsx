@@ -174,7 +174,8 @@ export const recommendationsData = {
         title: "Last-Minute DSA Revision",
         url: "https://www.youtube.com/watch?v=4iFALQ1ACdA"
       }
-      , { title: "Crack Coding Interviews – Striver", url: "https://www.youtube.com/watch?v=OmFLoCYeZ4I" }
+      , { title: "Crack Coding Interviews", url: "https://www.youtube.com/watch?v=OmFLoCYeZ4I" }
+      , { title: "Frontend Web Development Bootcamp Course ", url: "https://www.youtube.com/watch?v=zJSY8tbf_ys" }
     ]
   }
 };
@@ -185,7 +186,7 @@ export default function DashboardPage() {
 
   const modules = [
     { name: "Roadmaps", path: "/roadmaps" },
-    { name: "Comment Posting", path: "/comments" },
+    { name: "Reviews", path: "/reviews" },
     { name: "Year-based Study", path: "/yearbased" },
   ];
 
