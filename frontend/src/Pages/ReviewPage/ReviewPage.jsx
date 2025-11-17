@@ -326,13 +326,13 @@ const ReviewPage = () => {
 
       {/* Review Submission Modal */}
       {showModal && (
-        <div className="modal-overlay" onClick={() => setShowModal(false)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <div className="modal-header">
-              <h2 className="modal-title">Write Your Review</h2>
+        <div className="modall-overlay" onClick={() => setShowModal(false)}>
+          <div className="modall-content" onClick={(e) => e.stopPropagation()}>
+            <div className="modall-header">
+              <h2 className="modall-title">Write Your Review</h2>
               <button
                 onClick={() => setShowModal(false)}
-                className="modal-close"
+                className="modall-close"
               >
                 ×
               </button>
