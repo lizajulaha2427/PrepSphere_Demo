@@ -1,0 +1,210 @@
+/* src/Components/Cell/InteractiveBot.css */
+
+.bot-avatar {
+  width: 40px;
+  height: 40px;
+}
+
+
+.interactive-bot-container {
+  width: 100%;
+  max-width: 700px; /* Increased max width */
+  height: 580px;    /* Set a fixed height for a larger bot box */
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.75); /* Slightly more opaque glass */
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(25px); /* Increased blur */
+  -webkit-backdrop-filter: blur(25px);
+  border-radius: 25px; /* Slightly larger border-radius */
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  color: #162032;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+.bot-header {
+  display: flex;
+  align-items: center;
+  padding: 18px 25px; /* Increased padding */
+  background: linear-gradient(135deg, #ffa726, #f7a933); /* Gradient for header */
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.bot-avatar {
+  font-size: 2.2rem; /* Larger avatar */
+  margin-right: 12px;
+}
+
+.bot-title {
+  font-size: 1.6rem; /* Larger title */
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Subtle text shadow */
+}
+
+.bot-chat-window {
+  padding: 25px; /* Increased padding */
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: calc(100% - 70px); /* Adjust max height based on header height */
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Increased gap between messages/options */
+}
+
+/* Custom scrollbar for chat window */
+.bot-chat-window::-webkit-scrollbar {
+  width: 8px;
+}
+
+.bot-chat-window::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.05);
+  border-radius: 10px;
+}
+
+.bot-chat-window::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+.bot-chat-window::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+
+.bot-message {
+  background: rgba(255, 255, 255, 0.9); /* More opaque for readability */
+  border-radius: 18px; /* Slightly larger radius */
+  padding: 15px 22px; /* Increased padding */
+  font-size: 1.15rem; /* Slightly larger font */
+  line-height: 1.6;
+  text-align: left;
+  align-self: flex-start;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Stronger shadow */
+}
+
+.bot-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px; /* Increased gap */
+  margin-top: 15px; /* Increased margin */
+  justify-content: center;
+}
+
+.bot-option-button {
+  border: none;
+  border-radius: 30px; /* More rounded */
+  padding: 14px 25px; /* Increased padding */
+  font-size: 1.05rem; /* Slightly larger font */
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+  min-width: 180px; /* Minimum width for buttons */
+}
+
+/* Specific styling for main topic buttons */
+.bot-chat-window .bot-options:first-child .bot-option-button {
+  background: #162032; /* Darker, primary button for main topics */
+  color: white;
+  box-shadow: 0 5px 15px rgba(22, 32, 50, 0.2);
+}
+
+.bot-chat-window .bot-options:first-child .bot-option-button:hover {
+  background: #2b3e5a; /* Slightly lighter dark on hover */
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(22, 32, 50, 0.3);
+}
+
+/* Styling for sub-topic buttons */
+.bot-option-button:not(.bot-chat-window .bot-options:first-child .bot-option-button) {
+  background: #f1f1f1; /* Lighter background for sub-options */
+  color: #162032;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.bot-option-button:not(.bot-chat-window .bot-options:first-child .bot-option-button):hover {
+  background: #e0e0e0; /* Darken slightly on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+.bot-back-button {
+    background: #6c757d; /* Muted grey for back button */
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 18px; /* Slightly smaller padding */
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+    margin-top: 20px; /* Adjust margin */
+    align-self: flex-start;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+.bot-back-button:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+}
+.bot-back-button:active {
+    transform: translateY(0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .interactive-bot-container {
+    max-width: 90%;
+    height: 550px; /* Adjust height for smaller screens */
+    border-radius: 20px;
+  }
+  .bot-header {
+    padding: 15px 20px;
+  }
+  .bot-avatar {
+    font-size: 1.8rem;
+  }
+  .bot-title {
+    font-size: 1.4rem;
+  }
+  .bot-chat-window {
+    padding: 20px;
+    gap: 15px;
+  }
+  .bot-message {
+    font-size: 1rem;
+    padding: 12px 18px;
+  }
+  .bot-option-button {
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    min-width: unset; /* Remove min-width for flexibility */
+    flex-grow: 1; /* Allow buttons to grow to fill space */
+  }
+  .bot-options {
+    flex-direction: column; /* Stack buttons vertically on small screens */
+  }
+}
+
+@media (max-width: 480px) {
+    .interactive-bot-container {
+        height: 500px;
+    }
+    .bot-title {
+        font-size: 1.2rem;
+    }
+    .bot-avatar {
+        font-size: 1.5rem;
+    }
+    .bot-message {
+        font-size: 0.95rem;
+    }
+    .bot-option-button {
+        font-size: 0.9rem;
+        padding: 10px 15px;
+    }
+}

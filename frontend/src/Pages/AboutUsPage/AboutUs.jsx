@@ -298,7 +298,7 @@ function AboutUs() {
             <div className="tab-media">
               {sections[active].media.endsWith(".mp4") ? (
                 <video
-                  key={sections[active].media} // 👈 force re-render when video changes
+                  key={sections[active].media} 
                   autoPlay
                   muted
                   loop

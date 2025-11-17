@@ -218,7 +218,7 @@ export default function DashboardPage() {
           <h3>{user?.fullName}</h3>
           <p>Welcome back!</p>
 
-          <button className="help-btn" onClick={() => navigate("/help")}>
+          <button className="help-btn" onClick={() => navigate("/helpandsupport")}>
             <HelpCircle size={18} /> Help & Support
           </button>
 

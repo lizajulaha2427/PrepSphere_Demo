@@ -8,6 +8,7 @@ import DashboardPage from './Pages/DashboardPage/DashboardPage';
 import { AuthProvider } from './Context/AuthContext';
 import CSStudentHub from './Pages/YearBasedPage/Year';
 import Roadmap from './Pages/RoadMaps/RoadMap';
+import HelpAndSupportPage from './Pages/HelpAndSupport/HelpAndSupport';
 function App() {
   return (
     <AuthProvider>
@@ -20,6 +21,7 @@ function App() {
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/yearbased" element={<CSStudentHub />}/>
         <Route path="/roadmaps" element={<Roadmap />}/>
+        <Route path="/helpandsupport" element={<HelpAndSupportPage />}/>
       </Routes>
     </Router>
     </AuthProvider>
