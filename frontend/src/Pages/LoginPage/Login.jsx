@@ -14,7 +14,7 @@ export default function Login({ showModal, onClose , onLogin }) {
   setLoading(true);
 
   try {
-    const res = await axios.post("http://localhost:5000/api/auth/login", { email, password });
+    const res = await axios.post("http://localhost:4000/api/auth/login", { email, password });
     const userData = res.data;
 
     // Make sure userData has fullName

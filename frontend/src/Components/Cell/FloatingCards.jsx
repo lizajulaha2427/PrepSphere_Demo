@@ -5,7 +5,7 @@ const cards = [
   { id: 1, text: "Communication skills", icon: "👍" },
   { id: 2, text: "Job details imported", icon: "✅" },
   { id: 3, text: "CV uploaded", icon: "📄" },
-  { id: 4, text: "Hello", icon: "🍀" },
+  { id: 4, text: "Guided Paths", icon: "🍀" },
 ];
 
 function FloatingCards() {
