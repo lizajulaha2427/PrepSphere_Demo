@@ -337,7 +337,7 @@ const ReviewPage = () => {
                 ×
               </button>
             </div>
-            <form onSubmit={handleSubmit} className="modal-form">
+            <form onSubmit={handleSubmit} className="modall-form">
               <div className="form-grid">
                 <div>
                   <label className="form-label">Name</label>
