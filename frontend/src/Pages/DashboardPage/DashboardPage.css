@@ -4,6 +4,112 @@
   background: #fafafa;
   font-family: 'Inter', sans-serif;
 }
+.profile-section {
+  background: none;
+  padding: 20px;
+  text-align: center;
+  border-radius: 12px;
+  margin-bottom: 0px;
+}
+
+.profile-avatar {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  border: 2px solid #444;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.email-display {
+  font-size: 13px;
+  color: #000000;
+  margin-top: -5px;
+  margin-bottom: 10px;
+}
+
+.upload-btn {
+  background: #ffffff;
+  color: black;
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.remove-btnn {
+  background: #ffffff;
+  color: black;
+  padding: 6px 10px;
+  font-size: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.upload-btn input {
+  display: none;
+}
+
+.change-pass-btn {
+  background: #ffffff;
+  border: none;
+  padding: 8px 10px;
+  margin-top: 12px;
+  width: 100%;
+  border-radius: 6px;
+  color: black;
+  cursor: pointer;
+}
+
+/* MODAL */
+.modal-overlayy {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal-boxx {
+  background: #111;
+  padding: 25px;
+  width: 40%;
+  border-radius: 12px;
+  color: white;
+}
+
+.modal-boxx input {
+  width: 97%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 6px;
+  border: none;
+}
+
+.modal-boxx button {
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  border: none;
+  margin-top: 12px;
+  border-radius: 6px;
+  color: white;
+}
+
+.close-btnn {
+  background: #444 !important;
+  margin-top: 10px;
+}
+
+.msg {
+  margin-top: 10px;
+  color: lightgreen;
+}
+
 
 /* Sidebar */
 .sidebar {
@@ -30,7 +136,7 @@
 /* Buttons */
 .logout-btn,
 .help-btn {
-  margin-top: 14px;
+  margin-top: 2px;
   background: white;
   border: none;
   padding: 12px 14px;
@@ -43,7 +149,9 @@
   cursor: pointer;
   transition: 0.2s ease;
 }
-
+.help-btn{
+  margin-top: 14px;
+}
 .logout-btn:hover,
 .help-btn:hover {
   background: #fff5cc;

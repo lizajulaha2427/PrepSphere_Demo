@@ -1,8 +1,9 @@
-import { useContext } from "react";
+import { useContext, useState , useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import "./DashboardPage.css";
 import { AuthContext } from "../../Context/AuthContext";
 import { HelpCircle, LogOut, ArrowRight } from "lucide-react";
+
 
 // 🔹 Function to extract YouTube video ID from any URL
 function extractVideoId(url) {
@@ -183,19 +184,62 @@ export const recommendationsData = {
 export default function DashboardPage() {
   const { user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
+  
+  const [openPasswordModal, setOpenPasswordModal] = useState(false);
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [msg, setMsg] = useState("");
+  const defaultImg = "https://img.freepik.com/premium-vector/vector-flat-illustration-grayscale-avatar-user-profile-person-icon-gender-neutral-silhouette-profile-picture-suitable-social-media-profiles-icons-screensavers-as-templatex9xa_719432-2210.jpg?semt=ais_hybrid&w=740&q=80";
+  const [profileImg, setProfileImg] = useState(defaultImg);
 
+  const userKeyId = user?.email || user?.id || "guest";
+  const storageKey = `profileImg_${userKeyId}`;
   const modules = [
     { name: "Roadmaps", path: "/roadmaps" },
     { name: "Reviews", path: "/reviews" },
     { name: "Year-based Study", path: "/yearbased" },
   ];
 
+  useEffect(() => {
+    // Load saved image only for this user
+    if (!userKeyId) return;
+    const saved = localStorage.getItem(storageKey);
+    if (saved) {
+      setProfileImg(saved);
+    } else {
+      setProfileImg(defaultImg);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userKeyId]);
+
   const handleLogout = () => {
     logout();
     navigate("/");
   };
 
-  // User Goal
+  const handleImageUpload = (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      const base64 = reader.result;
+      setProfileImg(base64);
+      try {
+        localStorage.setItem(storageKey, base64);
+      } catch (err) {
+        console.error("Could not save image to localStorage:", err);
+      }
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const handleRemoveImage = () => {
+    setProfileImg(defaultImg);
+    localStorage.removeItem(storageKey);
+  };
+
+
   const userGoal = user?.goal || "";
 
   // User Selected Years (array)
@@ -215,16 +259,42 @@ export default function DashboardPage() {
     <div className="dash-wrap">
       {/* LEFT SIDEBAR */}
       <aside className="sidebar">
-        <div className="profile-box">
-          <h3>{user?.fullName}</h3>
-          <p>Welcome back!</p>
 
-          <button className="help-btn" onClick={() => navigate("/helpandsupport")}>
-            <HelpCircle size={18} /> Help & Support
+        <div className="profile-section">
+          <p>Welcome back!</p>
+          <img src={profileImg} className="profile-avatar" alt="profile" />
+
+          <h3>{user?.fullName}</h3>
+          <p className="email-display">{user?.email}</p>
+
+          <label className="upload-btn" style={{ cursor: "pointer" }}>
+              Upload Image
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleImageUpload}
+                style={{ display: "none" }}
+              />
+            </label>
+
+  <button className="remove-btnn" onClick={handleRemoveImage}>
+    Remove Image
+  </button>
+          <button
+            className="change-pass-btn"
+            onClick={() => setOpenPasswordModal(true)}
+          >
+            Change Password
           </button>
+        </div>
+        <div className="profile-box">
+          
 
           <button className="logout-btn" onClick={handleLogout}>
             <LogOut size={18} /> Logout
+          </button>
+          <button className="help-btn" onClick={() => navigate("/helpandsupport")}>
+            <HelpCircle size={18} /> Help & Support
           </button>
         </div>
       </aside>
@@ -285,6 +355,67 @@ export default function DashboardPage() {
           )}
         </div>
       </main>
+      {openPasswordModal && (
+        <div className="modal-overlayy">
+          <div className="modal-boxx">
+            <h3>Change Password</h3>
+
+            <input
+              type="password"
+              placeholder="New Password"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+            />
+
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+
+            <button
+              onClick={async ()=> {
+                if (newPassword !== confirmPassword) {
+                  setMsg("Passwords do not match!");
+                  return;
+                }
+            try {
+              const res = await fetch("http://localhost:4000/api/auth/change-password", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  email: user.email,
+                  newPassword,
+                }),
+              });
+
+              const data = await res.json();
+              setMsg(data.msg);
+
+              if (res.ok) {
+                setTimeout(() => setOpenPasswordModal(false), 1500);
+              }
+
+            } catch (err) {
+              setMsg("Server error");
+            }
+          }}
+            >
+              Update Password
+            </button>
+
+            {msg && <p className="msg">{msg}</p>}
+
+            <button
+              className="close-btnn"
+              onClick={() => setOpenPasswordModal(false)}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

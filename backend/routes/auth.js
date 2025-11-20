@@ -64,5 +64,23 @@ router.post("/login", async (req, res) => {
 
 // ❌ REMOVE THIS — not needed anymore
 // router.get("/videos/:userId", ... )
+router.post("/change-password", async (req, res) => {
+  try {
+    const { email, newPassword } = req.body;
 
+    if (!email || !newPassword)
+      return res.status(400).json({ msg: "Missing fields" });
+
+    const hashed = await bcrypt.hash(newPassword, 10);
+
+    await User.findOneAndUpdate(
+      { email },
+      { password: hashed }
+    );
+
+    res.json({ msg: "Password changed successfully!" });
+  } catch (err) {
+    res.status(500).json({ msg: err.message });
+  }
+});
 export default router;
