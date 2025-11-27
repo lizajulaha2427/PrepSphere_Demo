@@ -198,8 +198,9 @@ export default function DashboardPage() {
     { name: "Roadmaps", path: "/roadmaps" },
     { name: "Reviews", path: "/reviews" },
     { name: "Year-based Study", path: "/yearbased" },
+    { name: "Mock Interview", path: "http://localhost:5500", external: true },
+    
   ];
-
   useEffect(() => {
     // Load saved image only for this user
     if (!userKeyId) return;
@@ -308,7 +309,14 @@ export default function DashboardPage() {
             <div
               key={mod.name}
               className="module-card"
-              onClick={() => navigate(mod.path)}
+              onClick={() => {
+                if (mod.external) {
+                window.location.href = mod.path;
+
+                } else {
+                  navigate(mod.path); // Normal React Router navigation
+                }
+              }}
             >
               <span>{mod.name}</span>
               <ArrowRight size={18} />

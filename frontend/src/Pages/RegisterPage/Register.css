@@ -1,3 +1,9 @@
+html, body, #root {
+  background-color: white !important;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
 .register-screen {
   display: flex;
   flex-direction: column;
