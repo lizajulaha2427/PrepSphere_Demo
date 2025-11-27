@@ -22,7 +22,7 @@ function AboutUs() {
       title: "CS & Programming",
       items: [
         { icon: "💻", text: "JavaScript Fundamentals" },
-        { icon: "⚙️", "text": "Data Structures" },
+        { icon: "⚙️", text: "Data Structures" },
         { icon: "🤖", text: "AI & Machine Learning" },
       ],
       media: "/cs.mp4",
@@ -102,17 +102,20 @@ function AboutUs() {
     e.preventDefault();
     const lowerCaseSearchTerm = searchTerm.toLowerCase();
 
-    // Check for exact section keywords first
+    // Exact section keywords
     if (lowerCaseSearchTerm === "features") {
-      document.querySelector(".third-container").scrollIntoView({ behavior: "smooth" });
+      const el = document.querySelector(".third-container");
+      if (el) el.scrollIntoView({ behavior: "smooth" });
       return;
     }
     if (lowerCaseSearchTerm === "reviews" || lowerCaseSearchTerm === "testimonials") {
-      document.querySelector(".fifth-container").scrollIntoView({ behavior: "smooth" });
+      const el = document.querySelector(".fifth-container");
+      if (el) el.scrollIntoView({ behavior: "smooth" });
       return;
     }
     if (lowerCaseSearchTerm === "courses" || lowerCaseSearchTerm === "guided paths") {
-      document.querySelector(".fourth-container").scrollIntoView({ behavior: "smooth" });
+      const el = document.querySelector(".fourth-container");
+      if (el) el.scrollIntoView({ behavior: "smooth" });
       return;
     }
 
@@ -123,9 +126,8 @@ function AboutUs() {
         feature.description.toLowerCase().includes(lowerCaseSearchTerm)
     );
     if (foundFeature) {
-      document
-        .getElementById(foundFeature.id)
-        .scrollIntoView({ behavior: "smooth" });
+      const el = document.getElementById(foundFeature.id);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
       return;
     }
 
@@ -137,38 +139,37 @@ function AboutUs() {
         testimonial.text.toLowerCase().includes(lowerCaseSearchTerm)
     );
     if (foundTestimonial) {
-      document
-        .getElementById(foundTestimonial.id)
-        .scrollIntoView({ behavior: "smooth" });
+      const el = document.getElementById(foundTestimonial.id);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
       return;
     }
 
     // Search sections (courses)
+    let foundSectionKey = null;
     for (const key in sections) {
       const section = sections[key];
       if (section.title.toLowerCase().includes(lowerCaseSearchTerm)) {
-        setActive(key); // Activate the tab
-        // Scroll to the fourth-container which holds the tabs
-        document
-          .querySelector(".fourth-container")
-          .scrollIntoView({ behavior: "smooth" });
-        return;
+        foundSectionKey = key;
+        break;
       }
       const foundItem = section.items.find((item) =>
         item.text.toLowerCase().includes(lowerCaseSearchTerm)
       );
       if (foundItem) {
-        setActive(key); // Activate the tab
-        // Scroll to the fourth-container which holds the tabs
-        document
-          .querySelector(".fourth-container")
-          .scrollIntoView({ behavior: "smooth" });
-        return;
+        foundSectionKey = key;
+        break;
       }
     }
 
-    // If no specific element found, perhaps scroll to a general section or show a "not found" message
-    alert("No matching section, feature, review, or course found.");
+    if (foundSectionKey) {
+      setActive(foundSectionKey);
+      setTimeout(() => {
+        const el = document.querySelector(".fourth-container");
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 100); // Wait for DOM to update
+      return;
+    }
+
   };
 
   return (
@@ -226,16 +227,13 @@ function AboutUs() {
         <FloatingCards />
 
         <div className="third-container">
-          {/* Left Side - Big Image */}
           <div className="left-side">
             <img
-              src="https://cdn0.iconfinder.com/data/icons/life-skill-flat-self-improvement/512/effective_growth-512.png" // replace with your image path
+              src="https://cdn0.iconfinder.com/data/icons/life-skill-flat-self-improvement/512/effective_growth-512.png"
               alt="Interview Practice"
               className="big-image"
             />
           </div>
-
-          {/* Right Side - Content */}
           <div className="right-side">
             <div className="features">
               {features.map((feature) => (
@@ -252,7 +250,6 @@ function AboutUs() {
 
         <div className="fourth-container">
           <p className="fourth-header">Guided paths for every journey</p>
-          {/* Tab Buttons */}
           <div className="tab-buttons">
             <button
               className={active === "math" ? "active" : ""}
@@ -280,9 +277,7 @@ function AboutUs() {
             </button>
           </div>
 
-          {/* Tab Content */}
           <div className="tab-content">
-            {/* LEFT SIDE: Text */}
             <div className="tab-text">
               <h3>{sections[active].title}</h3>
               <ul>
@@ -294,15 +289,9 @@ function AboutUs() {
               </ul>
             </div>
 
-            {/* RIGHT SIDE: Media */}
             <div className="tab-media">
               {sections[active].media.endsWith(".mp4") ? (
-                <video
-                  key={sections[active].media} 
-                  autoPlay
-                  muted
-                  loop
-                >
+                <video key={sections[active].media} autoPlay muted loop>
                   <source src={sections[active].media} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
@@ -316,7 +305,7 @@ function AboutUs() {
         <div className="fifth-container">
           <div className="testimonial-header">
             <h2>
-              Do you want to be the only <br></br>candidate that didn’t prepare?
+              Do you want to be the only <br />candidate that didn’t prepare?
             </h2>
           </div>
 
@@ -336,7 +325,6 @@ function AboutUs() {
           </div>
         </div>
 
-        {/* FOOTER SECTION */}
         <footer className="footer">
           <div className="footer-container">
             <div className="footer-col">
