@@ -17,14 +17,14 @@
   font-size: 1.6rem;
   font-weight: bold;
   color: #222;
-  margin-right: 1000px;
+  margin-right: 1090px;
 }
 
 /* Nav container */
 .nav-links {
   display: flex;
   align-items: start;
-  margin-right: 10px;   /* extra right spacing */
+  margin-right: 5px;   /* extra right spacing */
   margin-top: 33px;
 }
 
