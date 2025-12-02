@@ -1,24 +1,25 @@
 import React, { useState } from 'react';
-import { FileText, ExternalLink, Video, FileCode, Sun, Moon } from 'lucide-react';
+import { FileText, ExternalLink, Video, FileCode} from 'lucide-react';
 
 const CSStudentHub = () => {
   const [activeYear, setActiveYear] = useState('year1');
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode] = useState(false);
 
   // Theme colors
   const theme = {
     light: {
-      bg: '#F8F6F1',
+      bg: '#FFFFFF',
       cardBg: '#FFFFFF',
       headerBg: '#FFFFFF',
       text: '#3A3A3A',
       textSecondary: '#666',
       border: '#E5E5E5',
-      sectionBg: '#F8F6F1',
+      sectionBg: '#FFFFFF',
       sectionHeaderBg: '#FAFAFA',
       footerBg: '#3A3A3A',
       footerText: '#FFFFFF',
-      accent: '#E0C06A'
+      accent: '#ffd56c'
+      
     },
     dark: {
       bg: '#1A1A1A',
@@ -37,16 +38,6 @@ const CSStudentHub = () => {
 
   const currentTheme = darkMode ? theme.dark : theme.light;
 
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
 
   const yearData = {
     year1: {
@@ -254,11 +245,11 @@ const CSStudentHub = () => {
       }
     } else {
       switch(type) {
-        case 'pdf': return '#FEF2F2';
-        case 'video': return '#F3E8FF';
-        case 'code': return '#ECFDF5';
-        case 'external': return '#EFF6FF';
-        default: return '#F9FAFB';
+        case 'pdf': return '#fff8e8';
+        case 'video': return '#fff8e8';
+        case 'code': return '#fff8e8';
+        case 'external': return '#fff8e8';
+        default: return '#fff8e8';
       }
     }
   };
@@ -268,55 +259,8 @@ const CSStudentHub = () => {
       minHeight: '100vh', 
       backgroundColor: currentTheme.bg, 
       fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-      transition: 'background-color 0.3s ease'
-    }}>
-      {/* Header */}
-      <header style={{
-        backgroundColor: currentTheme.headerBg,
-        padding: '1rem 2rem',
-        boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-        transition: 'background-color 0.3s ease'
-      }}>
-        <div style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center'
-        }}>
-          <div>
-          </div>
-          
-          <button 
-            onClick={toggleDarkMode}
-            style={{
-              backgroundColor: 'transparent',
-              color: currentTheme.text,
-              border: `2px solid ${currentTheme.border}`,
-              padding: '0.5rem',
-              borderRadius: '50%',
-              width: '2.5rem',
-              height: '2.5rem',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              transition: 'all 0.3s ease'
-            }}
-            onMouseOver={(e) => {
-              e.target.style.backgroundColor = currentTheme.accent;
-              e.target.style.borderColor = currentTheme.accent;
-            }}
-            onMouseOut={(e) => {
-              e.target.style.backgroundColor = 'transparent';
-              e.target.style.borderColor = currentTheme.border;
-            }}
-          >
-            {darkMode ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
-        </div>
-      </header>
-
+      transition: 'background-color 0.3s ease'   }}>
+        
       {/* Hero Section */}
       <section style={{
         maxWidth: '1200px',
@@ -325,7 +269,7 @@ const CSStudentHub = () => {
         textAlign: 'center'
       }}>
         <h2 style={{
-          fontSize: '3rem',
+          fontSize: '4rem',
           fontWeight: '700',
           color: currentTheme.text,
           marginBottom: '1rem',
@@ -342,7 +286,8 @@ const CSStudentHub = () => {
           maxWidth: '600px',
           margin: '0 auto 2rem',
           lineHeight: '1.6',
-          transition: 'color 0.3s ease'
+          transition: 'color 0.3s ease',
+          fontWeight: 'bold'
         }}>
           Find organized study materials, practice problems, and learning resources for each year of your academic journey.
         </p>
@@ -353,6 +298,7 @@ const CSStudentHub = () => {
         maxWidth: '1200px',
         margin: '0 auto',
         padding: '0 2rem'
+        
       }}>
         <div style={{
           display: 'flex',
@@ -395,7 +341,7 @@ const CSStudentHub = () => {
         }}>
           <div style={{
             textAlign: 'center',
-            marginBottom: '3rem'
+            marginBottom: '1rem'
           }}>
             <h3 style={{
               fontSize: '2.5rem',
@@ -405,7 +351,6 @@ const CSStudentHub = () => {
               marginBottom: '0.5rem',
               transition: 'color 0.3s ease'
             }}>
-              {currentYear.title}
             </h3>
             <p style={{
               fontSize: '1.2rem',
@@ -413,7 +358,6 @@ const CSStudentHub = () => {
               margin: 0,
               transition: 'color 0.3s ease'
             }}>
-              {currentYear.subtitle}
             </p>
           </div>
 
@@ -421,7 +365,7 @@ const CSStudentHub = () => {
           <div style={{ display: 'grid', gap: '2rem' }}>
             {currentYear.materials.map((material, index) => (
               <div key={index} style={{
-                border: `1px solid ${currentTheme.border}`,
+                border: `2px solid ${currentTheme.border}`,
                 borderRadius: '12px',
                 overflow: 'hidden',
                 transition: 'border-color 0.3s ease'
@@ -524,47 +468,6 @@ const CSStudentHub = () => {
         </div>
       </div>
 
-      {/* Footer */}
-      <footer style={{
-        backgroundColor: currentTheme.footerBg,
-        color: currentTheme.footerText,
-        padding: '3rem 2rem',
-        textAlign: 'center',
-        transition: 'background-color 0.3s ease'
-      }}>
-        <div style={{
-          maxWidth: '1200px',
-          margin: '0 auto'
-        }}>
-          <h3 style={{
-            fontSize: '1.5rem',
-            marginBottom: '1rem'
-          }}>
-            Ready to Start Learning?
-          </h3>
-          <p style={{
-            fontSize: '1.1rem',
-            marginBottom: '2rem',
-            opacity: 0.8
-          }}>
-            Access comprehensive study materials organized for your academic success.
-          </p>
-          <button 
-            onClick={scrollToTop}
-            style={{
-              backgroundColor: currentTheme.accent,
-              color: '#3A3A3A',
-              border: 'none',
-              padding: '1rem 2rem',
-              borderRadius: '25px',
-              fontWeight: '600',
-              cursor: 'pointer',
-              fontSize: '1rem'
-            }}>
-            Explore Resources
-          </button>
-        </div>
-      </footer>
     </div>
   );
 };
