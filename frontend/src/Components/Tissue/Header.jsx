@@ -3,6 +3,7 @@ import { useState, useContext } from "react";
 import Login from "../../Pages/LoginPage/Login";
 import './Header.css';
 import { AuthContext } from "../../Context/AuthContext";
+import React from "react";
 
 export default function Header() {
   const [showModal, setShowModal] = useState(false);
@@ -13,6 +14,13 @@ export default function Header() {
 
   return (
     <nav className="navbar">
+        <img
+          src="/lumi.png"
+          alt="PrepSphere Logo"
+          className="logo-image"
+          width={60}
+          height={60}
+        />
       <h2 className="logo">
         <Link to="/">PrepSphere</Link>
       </h2>

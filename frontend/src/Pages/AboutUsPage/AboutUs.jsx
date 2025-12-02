@@ -4,20 +4,12 @@ import "./AboutUs.css";
 import FloatingCards from "../../Components/Cell/FloatingCards";
 import Header from "../../Components/Tissue/Header";
 
+
 function AboutUs() {
-  const [active, setActive] = useState("math");
+  const [active, setActive] = useState("cs");
   const [searchTerm, setSearchTerm] = useState("");
 
   const sections = {
-    math: {
-      title: "Math Courses",
-      items: [
-        { icon: "➗", text: "Algebra Basics" },
-        { icon: "📐", text: "Geometry Concepts" },
-        { icon: "📊", text: "Probability & Statistics" },
-      ],
-      media: "/Maths.mp4",
-    },
     cs: {
       title: "CS & Programming",
       items: [
@@ -26,6 +18,15 @@ function AboutUs() {
         { icon: "🤖", text: "AI & Machine Learning" },
       ],
       media: "/cs.mp4",
+    },
+    math: {
+      title: "Math Courses",
+      items: [
+        { icon: "➗", text: "Algebra Basics" },
+        { icon: "📐", text: "Geometry Concepts" },
+        { icon: "📊", text: "Probability & Statistics" },
+      ],
+      media: "/Maths.mp4",
     },
     data: {
       title: "Data Analysis",
@@ -51,21 +52,23 @@ function AboutUs() {
     {
       id: "voice-chat",
       title: "Voice chat",
-      description: "Our realistic voice chat feels just like a real interview.",
+      description:
+        "Experience a natural, human-like interview through realistic voice chat.",
     },
     {
       id: "powerful-interview",
       title: "Powerful interviewer",
       description:
-        "Our AI interviewer will question you on everything from job-specific technicalities to items on your résumé.",
+        "Choose what role or topic you want to prepare for, and our AI interviewer will conduct a complete mock interview—covering personal, behavioural, and technical questions.",
     },
     {
       id: "constructive-feedback",
       title: "Constructive feedback",
       description:
-        "Get honest constructive feedback from our intelligent interview model.",
+        "Receive clear, actionable feedback after every mock interview to help you improve quickly.",
     },
   ];
+
 
   const testimonials = [
     {
@@ -186,13 +189,13 @@ function AboutUs() {
                 stroke="#FFA726"
                 strokeWidth="2"
                 viewBox="0 0 24 24"
-                style={{ marginRight: "6px" }}
               >
                 <circle cx="12" cy="12" r="10" />
                 <path d="M12 8v4l3 2" />
               </svg>
               AI Powered
             </span>
+
             <h2 className="main-heading">Ace Interviews With PrepSphere</h2>
             <p className="sub-heading">
               Get role-specific questions, expand answers when you need them,
@@ -226,6 +229,7 @@ function AboutUs() {
         </div>
         <FloatingCards />
 
+
         <div className="third-container">
           <div className="left-side">
             <img
@@ -252,16 +256,16 @@ function AboutUs() {
           <p className="fourth-header">Guided paths for every journey</p>
           <div className="tab-buttons">
             <button
-              className={active === "math" ? "active" : ""}
-              onClick={() => setActive("math")}
-            >
-              Math Courses
-            </button>
-            <button
               className={active === "cs" ? "active" : ""}
               onClick={() => setActive("cs")}
             >
               CS & Programming
+            </button>
+            <button
+              className={active === "math" ? "active" : ""}
+              onClick={() => setActive("math")}
+            >
+              Math Courses
             </button>
             <button
               className={active === "data" ? "active" : ""}
