@@ -2,7 +2,7 @@ import { useContext, useState , useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import "./DashboardPage.css";
 import { AuthContext } from "../../Context/AuthContext";
-import { HelpCircle, LogOut, ArrowRight } from "lucide-react";
+import { HelpCircle, LogOut, Route, Star, Podcast, BookOpenText } from "lucide-react";
 
 
 // 🔹 Function to extract YouTube video ID from any URL
@@ -194,13 +194,13 @@ export default function DashboardPage() {
 
   const userKeyId = user?.email || user?.id || "guest";
   const storageKey = `profileImg_${userKeyId}`;
-  const modules = [
-    { name: "Roadmaps", path: "/roadmaps" },
-    { name: "Reviews", path: "/reviews" },
-    { name: "Year-based Study", path: "/yearbased" },
-    { name: "Mock Interview", path: "http://localhost:5500", external: true },
+  // const modules = [
+  //   { name: "Roadmaps", path: "/roadmaps" },
+  //   { name: "Reviews", path: "/reviews" },
+  //   { name: "Year-based Study", path: "/yearbased" },
+  //   { name: "Mock Interview", path: "http://localhost:5500", external: true },
     
-  ];
+  // ];
   useEffect(() => {
     // Load saved image only for this user
     if (!userKeyId) return;
@@ -262,25 +262,30 @@ export default function DashboardPage() {
       <aside className="sidebar">
 
         <div className="profile-section">
-          <p>Welcome back!</p>
-          <img src={profileImg} className="profile-avatar" alt="profile" />
+          <h2>Welcome back!</h2>
+          <div className="newprofile">
+              <img src={profileImg} className="profile-avatar" alt="profile" />
+              <div className="newprofilehead">  
+                <h3>{user?.fullName}</h3>
+                <p className="email-display">{user?.email}</p>
+              </div>
+            </div>
+            <div className="button-row">
+              <label className="upload-btn" style={{ cursor: "pointer" }}>
+                Upload Image
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageUpload}
+                  style={{ display: "none" }}
+                />
+              </label>
 
-          <h3>{user?.fullName}</h3>
-          <p className="email-display">{user?.email}</p>
+              <button className="remove-btnn" onClick={handleRemoveImage}>
+                Remove Image
+              </button>
+            </div>
 
-          <label className="upload-btn" style={{ cursor: "pointer" }}>
-              Upload Image
-              <input
-                type="file"
-                accept="image/*"
-                onChange={handleImageUpload}
-                style={{ display: "none" }}
-              />
-            </label>
-
-  <button className="remove-btnn" onClick={handleRemoveImage}>
-    Remove Image
-  </button>
           <button
             className="change-pass-btn"
             onClick={() => setOpenPasswordModal(true)}
@@ -289,8 +294,23 @@ export default function DashboardPage() {
           </button>
         </div>
         <div className="profile-box">
-          
-
+          <h3>Menu</h3>
+          <button className="normal-btn" onClick={() => window.location.href = "http://localhost:8080"}>
+            <Route size={18} /> RoadMaps
+          </button>
+          <button className="normal-btn" onClick={() => window.location.href = "http://localhost:5500"}>
+            <Podcast size={18} /> Mock Interview
+          </button>
+          <button className="normal-btn" onClick={() => window.location.href = "http://localhost:5500"}>
+            <Podcast size={18} /> Mock Interview
+          </button>
+          <button className="normal-btn" onClick={() => navigate("/yearbased")}>
+            <BookOpenText size={18} /> Year-Based-Study
+          </button>
+          <button className="normal-btn" onClick={() => navigate("/reviews")}>
+            <Star size={18} /> Review
+          </button>
+          <h3>Settings</h3>
           <button className="logout-btn" onClick={handleLogout}>
             <LogOut size={18} /> Logout
           </button>
@@ -302,7 +322,7 @@ export default function DashboardPage() {
 
       {/* MAIN CONTENT */}
       <main className="main">
-        <h2>Your Modules</h2>
+        {/* <h2>Your Modules</h2>
 
         <div className="modules-grid">
           {modules.map((mod) => (
@@ -322,7 +342,7 @@ export default function DashboardPage() {
               <ArrowRight size={18} />
             </div>
           ))}
-        </div>
+        </div> */}
 
         {/* RECOMMENDATION SECTION */}
         <h2 className="yt-heading">
@@ -341,12 +361,12 @@ export default function DashboardPage() {
 
               return (
                 <div key={index} className="video-card">
-                  <h3>{item.title}</h3>
+                  <h4>{item.title}</h4>
 
                   {videoId ? (
                     <iframe
                       width="100%"
-                      height="200"
+                      height="170"
                       src={`https://www.youtube.com/embed/${videoId}`}
                       title={item.title}
                       frameBorder="0"
