@@ -20,21 +20,19 @@
   margin-right: 1090px;
 }
 
-/* Nav container */
 .nav-links {
   display: flex;
   align-items: start;
-  margin-right: 5px;   /* extra right spacing */
+  margin-right: 5px;
   margin-top: 33px;
 }
 
-/* Sign In button */
 .open-btn {
   background: linear-gradient(to right, #fbbf24, #f97316);
   color: white;
   font-size: 0.95rem;
   font-weight: 600;
-  padding: 10px 22px;   /* make button balanced */
+  padding: 10px 22px;
   border: none;
   border-radius: 25px;
   cursor: pointer;
@@ -47,9 +45,8 @@
 }
 
 .profile-icon {
-  font-size: 24px;       /* size of the icon */
+  font-size: 24px;
   cursor: pointer;
   color: #fff;           /* change as per your theme */
-  padding: 5px 10px;
 }
 
