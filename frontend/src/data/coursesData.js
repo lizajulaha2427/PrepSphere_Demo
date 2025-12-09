@@ -49,25 +49,25 @@ export const courses = [
         id: 2,
         title: "Express.js Routing",
         content: "Express.js, often referred to simply as Express, is a minimal and flexible Node.js web application framework designed to streamline the development of robust web applications and APIs. It provides a powerful set of features for handling HTTP requests and responses, including a robust routing system that allows developers to define specific actions for different URL patterns and HTTP methods. Express's lightweight and unopinionated nature provides developers with the freedom to structure their applications as they see fit, while its extensive middleware system enables the easy integration of functionalities like parsing requests, managing sessions, and implementing authentication. This combination of flexibility, ease of use, and a rich ecosystem of third-party modules makes Express a popular choice for building scalable and high-performance server-side applications within the Node.js environment.",
-        videoUrl: "YOUR_VIDEO_URL"
+        videoUrl: "https://www.youtube.com/embed/SccSCuHhOw0?si=Exh5wuFszZ3psN7G"
       },
       {
         id: 3,
         title: "Middlewares",
-        content: "Write your middleware content here...",
-        videoUrl: "YOUR_VIDEO_URL"
+        content: "Middleware is a layer of software that functions as a bridge, or software glue, connecting disparate applications, systems, and databases so they can communicate and exchange data efficiently. It sits between the operating system and the applications that run on it, abstracting the complexity of underlying networks, hardware, and different programming languages. By providing common services like data management, security, and messaging, middleware allows developers to focus on core business logic rather than building custom integrations for every interaction, thus simplifying application development and modernization",
+        videoUrl: "https://www.youtube.com/embed/n2c0mf1sza4?si=pjkEDLj8jvI5KTh6"
       },
       {
         id: 4,
         title: "Authentication",
-        content: "Write your authentication content here...",
-        videoUrl: "YOUR_VIDEO_URL"
+        content: "Authentication is the critical process of verifying a user's or system's identity before granting access to digital resources. It serves as the primary line of defense in cybersecurity, ensuring that only legitimate entities with valid credentials can interact with sensitive systems and data. This process typically involves a user providing an identifier, such as a username, and then offering a form of proof that can be validated by the system against a stored record",
+        videoUrl: "https://www.youtube.com/embed/19RpMEonSu8?si=OCbuSvKHrgo8h9Er"
       },
       {
         id: 5,
         title: "MongoDB Integration",
-        content: "Write your MongoDB content here...",
-        videoUrl: "YOUR_VIDEO_URL"
+        content: "MongoDB is a popular, open-source NoSQL database management system that utilizes a document-oriented data model, storing data in flexible, JSON-like documents. This approach contrasts with traditional relational databases that rely on tables and rows, offering greater flexibility in handling diverse and evolving data structures. MongoDB's document model allows for easy mapping to objects in application code, simplifying development and enabling agile methodologies. Key features include dynamic schemas, powerful ad hoc queries, rich indexing capabilities, and real-time aggregation for data analysis. Designed for scalability and high availability, MongoDB incorporates native sharding and built-in replication, making it suitable for modern, distributed applications and handling large volumes of data, such as in IoT and real-time analytics scenarios.",
+        videoUrl: "https://www.youtube.com/embed/c2M-rlkkT5o?si=yt3haQeP_XSWqtRt"
       }
     ],image:"https://img.freepik.com/premium-vector/back-end-developer-typographic-header-software-development_277904-18665.jpg"
   },
@@ -78,32 +78,32 @@ export const courses = [
       {
         id: 1,
         title: "Frontend + Backend Overview",
-        content: "Write your overview content here...",
-        videoUrl: "YOUR_VIDEO_URL"
+        content: "Frontend and backend represent the two fundamental components of any web application, working in tandem to deliver a complete user experience. The frontend, also known as client-side development, focuses on everything a user directly sees and interacts with in their browser, including the visual layout, interactive elements like buttons and forms, and dynamic content. It utilizes languages such as HTML for structure, CSS for styling, and JavaScript for interactivity. In contrast, the backend, or server-side development, operates behind the scenes, handling data storage, processing requests, and managing application logic. This involves server-side languages like Python, Java, or Node.js, interacting with databases (e.g., SQL, MongoDB) to store and retrieve information, and building APIs to facilitate communication with the frontend, ultimately ensuring the application's functionality and performance.",
+        videoUrl: "https://www.youtube.com/embed/vP3TRAsjZss?si=DUUiP2UlKBAAHumr"
       },
       {
         id: 2,
         title: "REST API Design",
-        content: "Write your API design content here...",
-        videoUrl: "YOUR_VIDEO_URL"
+        content: "REST API design adheres to the Representational State Transfer (REST) architectural style, emphasizing a stateless, client-server interaction where resources are identified by URIs and manipulated using standard HTTP methods (GET, POST, PUT, DELETE). A well-designed REST API prioritizes a clear and consistent uniform interface, ensuring resources are easily discoverable and their representations are communicated effectively, typically in formats like JSON. This approach promotes scalability, flexibility, and loose coupling between client and server, allowing independent evolution of components while maintaining a predictable and intuitive interaction model for developers. Key principles include statelessness, where each request from client to server contains all necessary information, and the use of hypermedia as the engine of application state (HATEOAS), guiding clients through available actions and transitions.",
+        videoUrl: "https://www.youtube.com/embed/pJ83mmqcvoQ?si=tc5WoXQ-IAMb8fnl"
       },
       {
         id: 3,
         title: "Database Modeling",
-        content: "Write your DB modeling content here...",
-        videoUrl: "YOUR_VIDEO_URL"
+        content: "Database modeling is the process of creating a visual representation or blueprint of a database, outlining its structure, the types of data it will store, and the relationships between different data elements. This systematic approach ensures that data is organized efficiently, promoting data integrity, consistency, and ease of retrieval. Data models, which can be conceptual, logical, or physical, translate business requirements into technical specifications, guiding the design and implementation of database systems. By defining entities, attributes, and relationships, database modeling facilitates clear communication among stakeholders, reduces development errors, and ultimately leads to more robust, scalable, and maintainable database solutions.",
+        videoUrl: "https://www.youtube.com/embed/TUcPS6dsWx4?si=Fa9JcevwXRUD7pED"
       },
       {
         id: 4,
         title: "Connecting Frontend & Backend",
-        content: "Write your integration content here...",
-        videoUrl: "YOUR_VIDEO_URL"
+        content: "Connecting the frontend and backend is a fundamental aspect of building dynamic web applications, enabling the user interface (frontend) to interact with the server-side logic and data storage (backend). This connection is primarily facilitated through Application Programming Interfaces (APIs), most commonly RESTful APIs, which define a set of rules for how the frontend can request and receive data from the backend. When a user interacts with the frontend, such as submitting a form or clicking a button, the frontend sends an HTTP request (e.g., GET, POST, PUT, DELETE) to a specific API endpoint on the backend. The backend then processes this request, potentially interacting with a database, and sends an HTTP response containing data or a confirmation back to the frontend, which then updates the user interface accordingly. This seamless communication ensures that applications can be both visually appealing and functionally robust, delivering a comprehensive user experience",
+        videoUrl: "https://www.youtube.com/embed/fFHyqhmnVfs?si=MNPY6KoB_1GQAfZ2"
       },
       {
         id: 5,
         title: "Deployment",
-        content: "Write your deployment content here...",
-        videoUrl: "YOUR_VIDEO_URL"
+        content: "Deployment refers to the strategic positioning of people and equipment for a specific mission or purpose, most commonly used in military contexts for sending troops into duty. However, the term is also used in other fields, such as software development and corporate settings.",
+        videoUrl: "https://www.youtube.com/embed/9srnyNC1e_o?si=w2kdUA8AnIMHoQFM"
       }
     ],image:"https://media.geeksforgeeks.org/wp-content/cdn-uploads/20190626123927/untitlsssssed.png"
   },
@@ -114,32 +114,32 @@ export const courses = [
       {
         id: 1,
         title: "Arrays",
-        content: "Write your arrays content here...",
-        videoUrl: "YOUR_VIDEO_URL"
+        content: "An array is a fundamental linear data structure in computer programming used to store a collection of elements, all of the same data type, in contiguous memory locations. This contiguous storage allows for efficient, direct (or random) access to any element using a numerical index, which typically starts at zero. By using a single variable name for multiple related data items (e.g., storing student marks instead of using separate variables for each one), arrays simplify data management and make code more concise and less error-prone, especially when dealing with large datasets",
+        videoUrl: "https://www.youtube.com/embed/FosoYnhpbHA?si=z1L8qE2Lmkd3LTb0"
       },
       {
         id: 2,
         title: "Linked List",
-        content: "Write your linked list content here...",
-        videoUrl: "YOUR_VIDEO_URL"
+        content: "A linked list is a linear data structure composed of a sequence of nodes, where each node contains data and a pointer (or reference) to the next node in the sequence. Unlike arrays, linked list elements are not stored contiguously in memory; instead, they are connected through these pointers, forming a chain-like structure. The first node in a linked list is called the head, and it serves as the entry point to traverse the list. The last node typically points to a null value, signifying the end of the list. This dynamic nature allows for efficient insertion and deletion of elements, as only the pointers of adjacent nodes need to be updated, rather than shifting elements as in arrays. However, random access to elements is not efficient in linked lists, as traversal from the head is required to reach a specific node. Despite this, linked lists are fundamental in computer science and are used to implement other data structures like stacks and queues, as well as in various real-world applications such as managing web browser history or creating music playlists.",
+        videoUrl: "https://www.youtube.com/embed/oAja8-Ulz6o?si=lE5EGAFye1lvaF6k"
       },
       {
         id: 3,
         title: "Stacks & Queues",
-        content: "Write your stacks & queues content here...",
-        videoUrl: "YOUR_VIDEO_URL"
+        content: "Stacks and queues are fundamental linear data structures used in computer science for organizing and managing data, but they operate on opposing principles. A stack operates on the Last-In, First-Out (LIFO) principle, much like a pile of plates where the last plate placed on top is the first one removed. Elements are added using a push operation and removed using a pop operation, both from the same end, called the top. Stacks are commonly applied in scenarios requiring reversal or backtracking, such as managing function calls in a program's call stack, implementing undo functionality in software, and evaluating mathematical expressions. In contrast, a queue follows the First-In, First-Out (FIFO) principle, mirroring a line of people waiting for a service, where the first person in line is the first one to be served. Elements are added to the back (or rear) of the queue via an enqueue operation and removed from the front using a dequeue operation. Queues are ideal for situations where elements must be processed in the order they arrive, such as CPU task scheduling, handling print jobs, or implementing breadth-first search algorithms in graph traversal. Both data structures can be implemented using arrays or linked lists, and both offer efficient, constant-time (O(1)) basic operations when managed correctly",
+        videoUrl: "https://www.youtube.com/embed/rHQI4mrJ3cg?si=fHzBo2f9TfkTHKlX"
       },
       {
         id: 4,
         title: "Trees",
-        content: "Write your trees content here...",
-        videoUrl: "YOUR_VIDEO_URL"
+        content: "A binary tree is a fundamental hierarchical data structure where each node has at most two children, a left child and a right child, making it efficient for organizing data for faster searching, insertion, and deletion. Starting from a single root node, it branches downwards, with nodes either having zero, one, or two children, forming subtrees that represent data relationships, like in file systems or decision processes. Variations such as Binary Search Trees (BSTs) keep data sorted for optimized lookups, while AVL trees maintain balance, making them crucial for algorithms.",
+        videoUrl: "https://www.youtube.com/embed/-DzowlcaUmE?si=l-Vv5PVPuVkMJq0N"
       },
       {
         id: 5,
         title: "Dynamic Programming",
-        content: "Write your DP content here...",
-        videoUrl: "YOUR_VIDEO_URL"
+        content: "Dynamic programming (DP) is a powerful algorithmic technique used to solve complex problems by breaking them down into smaller, overlapping subproblems and storing their solutions to avoid redundant computations. This approach significantly improves efficiency, often reducing exponential time complexities to polynomial time, particularly for optimization and counting problems",
+        videoUrl: "https://www.youtube.com/embed/Z8USYkiRvZw?si=ODL2IVCCAtyTYQOy"
       }
     ],image:"https://cdn.nishtyainfotech.com/content/learnings/data/blog/banner/68dbc545ace439.34680888.webp"
   },
@@ -150,32 +150,32 @@ export const courses = [
       {
         id: 1,
         title: "What is System Design?",
-        content: "Write your intro content here...",
-        videoUrl: "YOUR_VIDEO_URL"
+        content: "System design is the process of defining a system's architecture, components, interfaces, and data flow to meet specific functional and non-functional requirements, essentially creating a blueprint for a software system that ensures scalability, performance, reliability, and efficiency, much like an architect plans a building. It bridges high-level concepts with concrete implementation, involving choices about databases, load balancers, APIs, and overall structure (like monolith vs. microservices) to handle real-world complexities",
+        videoUrl: "https://www.youtube.com/embed/lFeYU31TnQ8?si=kKTglmq_iTRtO3jR"
       },
       {
         id: 2,
         title: "Load Balancing",
-        content: "Write your load balancing content here...",
-        videoUrl: "YOUR_VIDEO_URL"
+        content: "Load balancing is the process of distributing network traffic or computational tasks across multiple servers/resources to optimize usage, maximize throughput, minimize response time, and ensure high availability by preventing any single resource from becoming a bottleneck",
+        videoUrl: "https://www.youtube.com/embed/K0Ta65OqQkY?si=uKWneShdT1OnoJsE"
       },
       {
         id: 3,
         title: "Caching",
-        content: "Write your caching content here...",
-        videoUrl: "YOUR_VIDEO_URL"
+        content: "Caching - System Design Concept - GeeksforGeeksCaching is storing copies of frequently used data in a temporary, high-speed storage (a cache) for faster access, reducing load times and strain on primary data sources like databases or servers by serving data from this closer, quicker location instead of fetching it repeatedly from the original, slower source",
+        videoUrl: "https://www.youtube.com/embed/rsHq4NPDEs0?si=Fii5o7laLDbZWnRW"
       },
       {
         id: 4,
         title: "Database Sharding",
-        content: "Write your sharding content here...",
-        videoUrl: "YOUR_VIDEO_URL"
+        content: "Database sharding is a technique that splits a large database into smaller, more manageable shards, which are then distributed across multiple servers. This horizontal partitioning improves performance by reducing the amount of data on each server, increases storage capacity, and enhances availability by spreading the load. Each shard contains a subset of the data but shares the same schema as the original database",
+        videoUrl: "https://www.youtube.com/embed/be6PLMKKSto?si=8CrTQaMmftCG26gj"
       },
       {
         id: 5,
         title: "Scalable Architectures",
-        content: "Write your scaling content here...",
-        videoUrl: "YOUR_VIDEO_URL"
+        content: "A scalable architecture is a system designed to handle increasing workloads by efficiently adding resources without performance loss, using strategies like horizontal scaling (more machines) or vertical scaling (bigger machines). Key principles involve loose coupling, statelessness, and asynchronous processing (like message queues) to avoid bottlenecks, common in designs like microservices (Netflix) or cloud autoscaling, ensuring performance during growth.",
+        videoUrl: "https://www.youtube.com/embed/ejofP2VKu-4?si=T_A_hpVvUwTx5zuo"
       }
     ],image:"https://www.designgurus.io/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fdownload%2Fstorage%2Fv1%2Fb%2Fdesigngurus-prod.appspot.com%2Fo%2Farticle%252F650d5cc626b0f89afbc13a5a%252Fimg%3A1cdf2c5-2a0e-d78-66c5-fb120bde83e4.jpg%3Fgeneration%3D1755244408178576%26alt%3Dmedia&w=3840&q=75&dpl=dpl_5pX1iTBZonadEdnkJS5ET2Kki2K8"
   },
