@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Star, User, Calendar, ThumbsUp, Filter, Send, BookOpen, ArrowUpDown, SortAsc } from 'lucide-react';
 import './ReviewPage.css';
 
-// ... (Keep your mockReviews and mockStats data exactly the same) ...
 const mockReviews = [
   {
     _id: '1',
@@ -106,7 +105,7 @@ const ReviewPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const reviewsPerPage = 6;
 
-  // API functions (Keep exactly as is)
+  // API functions
   const fetchReviews = async () => {
     try {
       const response = await fetch(`${baseURL}/reviews`);
@@ -144,7 +143,7 @@ const ReviewPage = () => {
     loadData();
   }, []);
 
-  // Form handling functions (Keep exactly as is)
+  // Form handling functions
   const handleFormChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
@@ -299,10 +298,10 @@ const ReviewPage = () => {
           <div className="hero-card card-pos-1">
             <span className="card-number">(01)</span>
             <p className="hero-review-text">
-              "{reviews[0]?.review.substring(0, 80) || "An unforgettable experience! The yacht was pure luxury..."}..."
+              "{reviews[0]?.review.substring(0, 80) || "Loading..."}..."
             </p>
             <div className="hero-card-footer">
-              — {reviews[0]?.name || "Sarah J."}
+              — {reviews[0]?.name || "Student"}
             </div>
           </div>
 
@@ -310,10 +309,10 @@ const ReviewPage = () => {
           <div className="hero-card card-pos-2">
             <span className="card-number">(02)</span>
             <p className="hero-review-text">
-              "{reviews[1]?.review.substring(0, 80) || "Absolutely perfect. It felt like having a floating five-star hotel..."}..."
+              "{reviews[1]?.review.substring(0, 80) || "Loading..."}..."
             </p>
             <div className="hero-card-footer">
-               — {reviews[1]?.name || "Mike C."}
+               — {reviews[1]?.name || "Student"}
             </div>
           </div>
 
@@ -321,10 +320,10 @@ const ReviewPage = () => {
           <div className="hero-card card-pos-3">
             <span className="card-number">(03)</span>
             <p className="hero-review-text">
-              "{reviews[2]?.review.substring(0, 80) || "The service was top-notch, the destinations were breathtaking..."}..."
+              "{reviews[2]?.review.substring(0, 80) || "Loading..."}..."
             </p>
             <div className="hero-card-footer">
-               — {reviews[2]?.name || "Emily R."}
+               — {reviews[2]?.name || "Student"}
             </div>
           </div>
 
@@ -332,10 +331,21 @@ const ReviewPage = () => {
           <div className="hero-card card-pos-4">
             <span className="card-number">(04)</span>
             <p className="hero-review-text">
-              "{reviews[3]?.review.substring(0, 80) || "Truly a dream come true! We can't wait for our next trip..."}..."
+              "{reviews[3]?.review.substring(0, 80) || "Loading..."}..."
             </p>
             <div className="hero-card-footer">
-               — {reviews[3]?.name || "David K."}
+               — {reviews[3]?.name || "Student"}
+            </div>
+          </div>
+
+          {/* Card 05 - Top Middle (New) */}
+          <div className="hero-card card-pos-5">
+            <span className="card-number">(05)</span>
+            <p className="hero-review-text">
+              "{reviews[4]?.review.substring(0, 80) || "Loading..."}..."
+            </p>
+            <div className="hero-card-footer">
+               — {reviews[4]?.name || "Student"}
             </div>
           </div>
         </div>
@@ -360,8 +370,7 @@ const ReviewPage = () => {
       </div>
       {/* --- NEW HERO SECTION END --- */}
 
-
-      {/* Review Submission Modal (Existing Code) */}
+      {/* Review Submission Modal */}
       {showModal && (
         <div className="modall-overlay" onClick={() => setShowModal(false)}>
           <div className="modall-content" onClick={(e) => e.stopPropagation()}>
@@ -424,7 +433,7 @@ const ReviewPage = () => {
         </div>
       )}
 
-      {/* Filter Section (Existing Code) */}
+      {/* Filter Section */}
       <div className="filter-section">
         <div className="filter-header">
           <Filter className="filter-icon" />
@@ -482,7 +491,7 @@ const ReviewPage = () => {
       {/* Error Message */}
       {error && <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">{error}</div>}
 
-      {/* Reviews Grid (Existing Code) */}
+      {/* Reviews Grid */}
       {!loading && paginatedReviews.length > 0 && (
         <div className="reviews-grid">
           {paginatedReviews.map((review) => (
