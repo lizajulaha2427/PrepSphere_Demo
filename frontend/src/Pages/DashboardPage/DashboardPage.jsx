@@ -301,8 +301,8 @@ export default function DashboardPage() {
           <button className="normal-btn" onClick={() => window.location.href = "http://localhost:5500"}>
             <Podcast size={18} /> Mock Interview
           </button>
-          <button className="normal-btn" onClick={() => window.location.href = "http://localhost:5500"}>
-            <Podcast size={18} /> Mock Interview
+          <button className="normal-btn" onClick={() => navigate("/courses")}>
+            <BookOpenText size={18} /> Courses
           </button>
           <button className="normal-btn" onClick={() => navigate("/yearbased")}>
             <BookOpenText size={18} /> Year-Based-Study

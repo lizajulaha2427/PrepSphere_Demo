@@ -1,0 +1,40 @@
+.lesson-item {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  padding: 18px 22px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.2s ease;
+}
+
+.lesson-item.completed {
+  background: #e8ffe8;
+  border-color: #79d779;
+}
+
+.lesson-title {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.lesson-btn {
+  padding: 8px 14px;
+  background: #0078ff;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.lesson-btn:hover {
+  background: #005fcc;
+}
+
+.lesson-btn:disabled {
+  background: gray !important;
+  cursor: default;
+}

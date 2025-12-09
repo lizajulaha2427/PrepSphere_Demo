@@ -1,0 +1,23 @@
+.course-page-box {
+  padding: 40px 60px;
+  font-family: 'Inter', sans-serif;
+}
+
+.course-page-box h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  height: 20px;
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 40px;
+  color: #0078ff;
+}
+
+.sections-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}

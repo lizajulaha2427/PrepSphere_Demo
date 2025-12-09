@@ -10,6 +10,8 @@ import CSStudentHub from './Pages/YearBasedPage/Year';
 import Roadmap from './Pages/RoadMaps/RoadMap';
 import HelpAndSupportPage from './Pages/HelpAndSupport/HelpAndSupport';
 import ReviewPage from './Pages/ReviewPage/ReviewPage';
+import CourseMenu from './Pages/CoursePage/CourseMenu';
+import CoursePage from './Pages/CoursePage/CoursePage';
 function App() {
   return (
     <AuthProvider>
@@ -24,6 +26,8 @@ function App() {
         <Route path="/roadmaps" element={<Roadmap />}/>
         <Route path="/reviews" element={<ReviewPage />} />
         <Route path="/helpandsupport" element={<HelpAndSupportPage />}/>
+        <Route path="/courses" element={<CourseMenu />} />
+        <Route path="/courses/:courseId" element={<CoursePage />} />
       </Routes>
     </Router>
     </AuthProvider>

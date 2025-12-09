@@ -374,12 +374,10 @@ const ReviewPage = () => {
                   <option value="">Select a course</option>
                   <option value="Frontend Development">Frontend Development</option>
                   <option value="Backend Development">Backend Development</option>
-                  <option value="Full Stack Development">Full Stack Development</option>
                   <option value="Data Structures & Algorithms">Data Structures & Algorithms</option>
                   <option value="System Design">System Design</option>
                   <option value="JavaScript">JavaScript</option>
                   <option value="React">React</option>
-                  <option value="Node.js">Node.js</option>
                   <option value="Python">Python</option>
                   <option value="Java">Java</option>
                 </select>
