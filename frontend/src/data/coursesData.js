@@ -48,7 +48,7 @@ export const courses = [
       {
         id: 2,
         title: "Express.js Routing",
-        content: "Write your Express.js content here...",
+        content: "Express.js, often referred to simply as Express, is a minimal and flexible Node.js web application framework designed to streamline the development of robust web applications and APIs. It provides a powerful set of features for handling HTTP requests and responses, including a robust routing system that allows developers to define specific actions for different URL patterns and HTTP methods. Express's lightweight and unopinionated nature provides developers with the freedom to structure their applications as they see fit, while its extensive middleware system enables the easy integration of functionalities like parsing requests, managing sessions, and implementing authentication. This combination of flexibility, ease of use, and a rich ecosystem of third-party modules makes Express a popular choice for building scalable and high-performance server-side applications within the Node.js environment.",
         videoUrl: "YOUR_VIDEO_URL"
       },
       {
