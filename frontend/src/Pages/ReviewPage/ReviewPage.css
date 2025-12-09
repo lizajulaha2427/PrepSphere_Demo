@@ -2,81 +2,246 @@
 
 .review-page {
   min-height: 100vh;
-  background-color: #ffffff;
+  background-color: white;
   padding: 2rem;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-.review-header {
+/* --- NEW HERO SECTION STYLES (4 CARDS FIX) --- */
+
+.hero-container {
+  background: linear-gradient(135deg, #f7e5b7 0%, #ffd56c 100%);
+  border-radius: 1.5rem;
+  /* Taller height to accommodate 4 cards comfortably */
+  min-height: 700px; 
+  padding: 2rem;
+  margin-bottom: 4rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(249, 177, 22, 0.2);
+}
+
+.giant-bg-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Times New Roman', serif;
+  font-size: 15rem;
+  line-height: 0.85;
+  color: #451a03; /* Deep brown */
+  opacity: 0.05;
+  font-style: italic;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 0;
   text-align: center;
-  margin-bottom: 3rem;
-  padding: 3rem 2rem;
-  background: linear-gradient(135deg, #fed7aa 0%, #f97316 100%);
-  border-radius: 1rem;
-  color: white;
-  box-shadow: 0 10px 25px rgba(249, 115, 22, 0.2);
-}
-
-.review-title {
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.review-title .highlight {
-  color: #ffffff;
-}
-
-.review-subtitle {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
-  font-weight: 300;
-}
-
-.stats-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 3rem;
-  margin-bottom: 2rem;
+  flex-direction: column;
 }
 
-.stat-item {
-  text-align: center;
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 1rem;
-  border-radius: 0.5rem;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+/* Container for the cards to float in */
+.hero-content {
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  min-height: 600px; /* Ensures layout structure */
+}
+
+/* SHARED CARD STYLES */
+.hero-card {
+  /* Dark Dark Grey background for high contrast against yellow */
+  background: rgba(31, 41, 55, 0.95); 
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f3f4f6; /* White text */
+  padding: 1.5rem;
+  border-radius: 1rem;
+  width: 260px; /* Smaller fixed width */
+  font-size: 0.9rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  position: absolute; /* Using absolute to scatter them */
+  transition: transform 0.3s ease;
+}
+
+.hero-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  background: rgba(17, 24, 39, 1); /* Solid black on hover */
+  border-color: rgba(249, 115, 22, 0.5); /* Orange border hint */
+}
+
+/* SCATTERED POSITIONS */
+
+/* Card 1: Top Left */
+.card-pos-1 {
+  top: 5%;
+  left: 5%;
+}
+
+/* Card 2: Top Right */
+.card-pos-2 {
+  top: 10%;
+  right: 15%;
+}
+
+/* Card 3: Middle/Bottom Left */
+.card-pos-3 {
+  bottom: 15%;
+  left: 10%;
+}
+
+/* Card 4: Middle Center (Offset) */
+.card-pos-4 {
+  bottom: 25%;
+  left: 45%;
+}
+
+.card-number {
+  font-size: 0.75rem;
+  color: #fdba74; /* Soft orange for numbers */
+  margin-bottom: 0.75rem;
+  font-family: monospace;
+  opacity: 0.8;
+}
+
+.hero-review-text {
+  font-size: 0.95rem; /* Smaller text */
+  line-height: 1.5;
+  font-weight: 400;
+  color: #e5e7eb;
+  font-style: italic;
+  margin-bottom: 1rem;
+  /* Limit text lines if too long */
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.hero-card-footer {
+  margin-top: auto;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #9ca3af; /* Light grey */
+  text-align: right;
+}
+
+/* Stats and Button - Bottom Right Corner */
+.hero-stats {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  flex-direction: column; /* Stack vertically for cleaner look with 4 cards */
+  align-items: flex-end;
+  gap: 1.5rem;
+  z-index: 10;
+  text-align: right;
+}
+
+.stats-row {
+  display: flex;
+  gap: 2rem;
+}
+
+.stat-box {
+  text-align: right;
 }
 
 .stat-number {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #374151;
-  margin-bottom: 0.25rem;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1f2937; /* Dark text on yellow bg */
+  margin: 0;
+  line-height: 1;
 }
 
 .stat-label {
-  color: #6b7280;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #4b5563;
+  margin-top: 0.25rem;
+  font-weight: 700;
 }
 
-.write-review-btn {
-  background-color: #f97316;
-  color: white;
-  padding: 0.75rem 1.5rem;
+.write-review-btn-hero {
+  background-color: #1f2937;
+  color: #fff;
+  padding: 0.85rem 2rem;
   border-radius: 9999px;
   font-weight: 600;
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-.write-review-btn:hover {
-  background-color: #ea580c;
+.write-review-btn-hero:hover {
+  background-color: #000;
+  transform: scale(1.05);
 }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .hero-container {
+    padding: 3rem 1rem;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .giant-bg-text {
+    font-size: 5rem;
+    position: relative;
+    transform: none;
+    top: auto;
+    left: auto;
+    margin-bottom: 2rem;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative;
+    min-height: auto;
+  }
+
+  /* Reset absolute positions for mobile/tablet */
+  .hero-card {
+    position: relative;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-stats {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin-top: 2rem;
+    align-items: center;
+    width: 100%;
+  }
+
+  .stats-row {
+    justify-content: center;
+  }
+}
+
+
+/* --- EXISTING STYLES (Slightly cleaned up) --- */
 
 .review-form {
   background-color: white;
@@ -101,13 +266,6 @@
   border-bottom: 10px solid #f97316;
 }
 
-.form-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #374151;
-  margin-bottom: 1rem;
-}
-
 .form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -115,25 +273,23 @@
   margin-bottom: 1rem;
 }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
-}
-
 .form-label {
   color: #374151;
   margin-bottom: 0.25rem;
   font-size: 0.875rem;
+  display: block;
 }
 
 .form-input,
 .form-select,
 .form-textarea {
+  width: 100%;
   padding: 0.5rem;
   border: 1px solid #d1d5db;
   border-radius: 0.25rem;
   font-size: 0.875rem;
   transition: border-color 0.2s;
+  box-sizing: border-box; /* Important for width: 100% */
 }
 
 .form-input:focus,
@@ -150,12 +306,7 @@
 
 .form-full {
   grid-column: 1 / -1;
-}
-
-.rating-container {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .star-rating {
@@ -197,6 +348,9 @@
   cursor: pointer;
   transition: all 0.2s;
   border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-submit {
@@ -334,13 +488,6 @@
   border-color: #ea580c;
 }
 
-.loading-message {
-  text-align: center;
-  padding: 3rem;
-  color: #6b7280;
-  font-size: 1.1rem;
-}
-
 .empty-state {
   text-align: center;
   padding: 4rem 2rem;
@@ -353,18 +500,19 @@
   margin-bottom: 1rem;
 }
 
-.empty-state p {
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
+.write-review-btn {
+  background-color: #f97316;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
-.error-banner {
-  background-color: #fef2f2;
-  border: 1px solid #fecaca;
-  color: #dc2626;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  margin-bottom: 1.5rem;
+.write-review-btn:hover {
+  background-color: #ea580c;
 }
 
 .reviews-grid {
@@ -411,19 +559,6 @@
   height: 4px;
   background: linear-gradient(90deg, #f97316 0%, #ea580c 50%, #dc2626 100%);
   border-radius: 1.5rem 1.5rem 0 0;
-}
-
-.review-card::after {
-  content: '"';
-  position: absolute;
-  top: 1.5rem;
-  right: 2rem;
-  font-size: 6rem;
-  color: #f97316;
-  opacity: 0.05;
-  font-family: Georgia, serif;
-  line-height: 1;
-  z-index: 1;
 }
 
 .review-card:hover {
@@ -480,6 +615,14 @@
   font-size: 0.85rem;
   color: #6b7280;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.date-icon {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.25rem;
 }
 
 .review-title-card {
@@ -516,19 +659,6 @@
   font-weight: 500;
 }
 
-.date-info {
-  display: flex;
-  align-items: center;
-  color: #6b7280;
-  font-size: 0.75rem;
-}
-
-.date-icon {
-  width: 1rem;
-  height: 1rem;
-  margin-right: 0.25rem;
-}
-
 .helpful-btn {
   display: flex;
   align-items: center;
@@ -556,10 +686,6 @@
 }
 
 .pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
   margin-top: 2rem;
 }
 
@@ -661,76 +787,44 @@
 }
 
 /* Responsive Design */
+@media (max-width: 900px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .hero-stats {
+    position: relative;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .card-right, .card-left {
+    justify-self: center;
+    margin: 0;
+  }
+
+  .giant-bg-text {
+    font-size: 20vw;
+  }
+}
+
 @media (max-width: 768px) {
   .review-page {
     padding: 1rem;
   }
-
-  .review-header {
-    padding: 2rem 1rem;
-  }
-
-  .review-title {
-    font-size: 2.5rem;
-  }
-
-  .stats-container {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .stat-item {
-    padding: 0.75rem;
-  }
-
+  
   .form-grid {
     grid-template-columns: 1fr;
   }
-
+  
   .filter-container {
     flex-direction: column;
     align-items: stretch;
   }
-
+  
   .reviews-grid {
     grid-template-columns: 1fr;
-  }
-
-  .review-card {
-    padding: 1.5rem;
-  }
-
-  .review-card::before {
-    font-size: 3rem;
-  }
-
-  .review-footer {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-}
-
-@media (max-width: 640px) {
-  .review-title {
-    font-size: 2rem;
-  }
-
-  .review-subtitle {
-    font-size: 1rem;
-  }
-
-  .form-buttons {
-    flex-direction: column;
-  }
-
-  .btn-submit,
-  .btn-cancel {
-    width: 100%;
-  }
-
-  .page-btn {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.875rem;
   }
 }
