@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Star, User, Calendar, ThumbsUp, Filter, Send, BookOpen, ArrowUpDown, SortAsc, Quote } from 'lucide-react';
+import { Star, User, Calendar, ThumbsUp, Filter, Send, BookOpen, ArrowUpDown, SortAsc } from 'lucide-react';
 import './ReviewPage.css';
 
 // ... (Keep your mockReviews and mockStats data exactly the same) ...
