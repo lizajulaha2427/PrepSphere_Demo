@@ -18,7 +18,18 @@
   font-size: 18px;
   font-weight: 500;
 }
-
+.lesson-content{
+  margin-top:50px;
+  margin-left: 100px;
+  margin-right: 100px;
+  font-weight: 400;
+  font-size: larger;
+  text-align: justify;
+}
+.lesson-video{
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
 .lesson-btn {
   padding: 8px 14px;
   background: #0078ff;
@@ -37,4 +48,13 @@
 .lesson-btn:disabled {
   background: gray !important;
   cursor: default;
+}
+
+.clickable-title {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.clickable-title:hover {
+  text-decoration: underline;
 }
