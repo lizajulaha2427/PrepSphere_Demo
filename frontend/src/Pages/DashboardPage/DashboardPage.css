@@ -114,7 +114,7 @@
   flex-direction: column;
   justify-content: flex-start;
   border-right: 3px solid #ffcf33;
-  height: 100%;
+height: auto;   
 }
 
 .profile-box h3 {
