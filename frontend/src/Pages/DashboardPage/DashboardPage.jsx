@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./DashboardPage.css";
 import { AuthContext } from "../../Context/AuthContext";
 import { HelpCircle, LogOut, Route, Star, Podcast, BookOpenText } from "lucide-react";
-
+import StatsSection from "./StatsSection";
 
 // 🔹 Function to extract YouTube video ID from any URL
 function extractVideoId(url) {
@@ -322,6 +322,7 @@ export default function DashboardPage() {
 
       {/* MAIN CONTENT */}
       <main className="main">
+  <StatsSection />
         {/* <h2>Your Modules</h2>
 
         <div className="modules-grid">

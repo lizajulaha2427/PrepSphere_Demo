@@ -1,5 +1,5 @@
 .lesson-item {
-  background: #ffffff;
+  background: #fff2c4;
   border: 1px solid #ddd;
   padding: 18px 22px;
   border-radius: 10px;
@@ -15,8 +15,8 @@
 }
 
 .lesson-title {
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 20px;
+  font-weight: 600;
 }
 .lesson-content{
   margin-top:50px;
@@ -32,22 +32,25 @@
 }
 .lesson-btn {
   padding: 8px 14px;
-  background: #0078ff;
+
+  background: #000000;
   border: none;
-  color: white;
+  color: rgb(255, 255, 255);
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 18px;
   cursor: pointer;
   transition: 0.2s ease;
 }
 
 .lesson-btn:hover {
-  background: #005fcc;
+  background: #ffd574;
+  color: black;
 }
 
 .lesson-btn:disabled {
   background: gray !important;
   cursor: default;
+  color: white;
 }
 
 .clickable-title {
