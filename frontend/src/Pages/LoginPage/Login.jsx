@@ -9,7 +9,7 @@ export default function Login({ showModal, onClose , onLogin }) {
 
   if (!showModal) return null;
 
-  const handleLogin = async (e) => {
+const handleLogin = async (e) => {
   e.preventDefault();
   setLoading(true);
 
@@ -17,20 +17,23 @@ export default function Login({ showModal, onClose , onLogin }) {
     const res = await axios.post("http://localhost:4000/api/auth/login", { email, password });
     const userData = res.data;
 
-    // Make sure userData has fullName
-    if (!userData.fullName && userData.user?.fullName) {
-      userData.fullName = userData.user.fullName;
+    // ✅ Store JWT token separately
+    if (userData.token) {
+      localStorage.setItem("token", userData.token);
     }
 
-    localStorage.setItem("user", JSON.stringify(userData));
+    // ✅ Store user info
+    if (userData.user) {
+      localStorage.setItem("user", JSON.stringify(userData.user));
+    }
 
     // Update AuthContext
-    if (onLogin) onLogin(userData);
+    if (onLogin) onLogin(userData.user);
 
     alert("✅ Logged in successfully!");
     onClose();
   } catch (err) {
-    alert(err.response?.data?.message || "❌ Login failed!");
+    alert(err.response?.data?.msg || "❌ Login failed!");
   } finally {
     setLoading(false);
   }

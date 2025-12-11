@@ -45,8 +45,12 @@ router.post("/login", async (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(400).json({ msg: "Invalid password" });
 
+    // Generate JWT token
+    const token = jwt.sign({ email: user.email, _id: user._id }, JWT_SECRET, { expiresIn: "1d" });
+
     res.json({
       msg: "Login successful",
+      token, // ✅ send token
       user: {
         _id: user._id,
         fullName: user.fullName,
@@ -55,11 +59,11 @@ router.post("/login", async (req, res) => {
         years: user.years,
       },
     });
-
   } catch (err) {
     res.status(500).json({ msg: err.message });
   }
 });
+
 
 
 // ❌ REMOVE THIS — not needed anymore

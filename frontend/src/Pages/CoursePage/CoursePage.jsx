@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react"; // ✅ add useEffect
 import { useParams } from "react-router-dom";
 import { courses } from "../../data/coursesData";
 import LessonItem from "./LessonItem";
@@ -10,9 +10,57 @@ const CoursePage = () => {
 
   const [completed, setCompleted] = useState([]);
 
-  const handleComplete = (lessonId) => {
-    if (!completed.includes(lessonId)) {
-      setCompleted([...completed, lessonId]);
+  // ✅ Fetch saved progress when page loads
+  useEffect(() => {
+    const fetchProgress = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        const res = await fetch("http://localhost:4000/api/progress", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        const data = await res.json();
+
+        const lessonsCompleted = data
+          .filter(p => p.courseName === course.title)
+          .map(p => p.lessonName);
+
+        setCompleted(lessonsCompleted);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchProgress();
+  }, [course.title]);
+
+  const handleComplete = async (lessonName) => {
+    if (!completed.includes(lessonName)) {
+      const newCompleted = [...completed, lessonName];
+      setCompleted(newCompleted);
+
+      const progressPercent = Math.round(
+        (newCompleted.length / course.sections.length) * 100
+      );
+
+      try {
+        const token = localStorage.getItem("token");
+        await fetch("http://localhost:4000/api/progress", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            courseName: course.title,
+            lessonName,
+            progress: progressPercent,
+          }),
+        });
+      } catch (err) {
+        console.error("Error saving progress:", err);
+      }
     }
   };
 
@@ -31,8 +79,8 @@ const CoursePage = () => {
           <LessonItem
             key={lesson.id}
             lesson={lesson}
-            completed={completed.includes(lesson.id)}
-            onComplete={() => handleComplete(lesson.id)}
+            completed={completed.includes(lesson.title)}
+            onComplete={() => handleComplete(lesson.title)}
           />
         ))}
       </div>

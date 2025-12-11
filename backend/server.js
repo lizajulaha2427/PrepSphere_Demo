@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import authRoutes from "./routes/auth.js";
+import progressRoutes from "./routes/progress.js"
 import reviewsRouter from "./routes/reviews.js"
 const app = express();
 
@@ -17,6 +18,6 @@ mongoose.connect(process.env.MONGO_URI)
 
 app.use("/api/auth", authRoutes);
 app.use('/api/reviews', reviewsRouter);
-
+app.use("/api/progress", progressRoutes);
 
 app.listen(4000, () => console.log("🚀 Server running on http://localhost:5000"));
