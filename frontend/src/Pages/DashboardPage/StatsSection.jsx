@@ -31,18 +31,49 @@ export default function StatsSection() {
 
   useEffect(() => {
     const fetchProgress = async () => {
-      try {
-        const token = localStorage.getItem("token");
-        const res = await fetch("http://localhost:4000/api/progress", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        const data = await res.json();
-        setProgressData(data);
-        setLoading(false);
-      } catch (err) {
-        console.error(err);
-      }
-    };
+  try {
+    const token = localStorage.getItem("token");
+
+    // If NO token → do not send request
+    if (!token) {
+      console.error("No token found");
+      setProgressData([]);
+      setLoading(false);
+      return;
+    }
+
+    const res = await fetch("http://localhost:4000/api/progress", {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+
+    // If unauthorized → do not break the UI
+    if (res.status === 401) {
+      console.error("Unauthorized or invalid token");
+      setProgressData([]);  // Prevent forEach error
+      setLoading(false);
+      return;
+    }
+
+    const data = await res.json();
+
+    // If data is NOT an array → protect UI
+    if (!Array.isArray(data)) {
+      console.error("Expected array, received:", data);
+      setProgressData([]);
+      setLoading(false);
+      return;
+    }
+
+    setProgressData(data);
+    setLoading(false);
+  } catch (err) {
+    console.error("Network/Server error:", err);
+    setProgressData([]);
+    setLoading(false);
+  }
+};
+
+
     fetchProgress();
   }, []);
 
@@ -115,14 +146,25 @@ export default function StatsSection() {
       {/* ⭐ Top row: Total Courses + doughnut chart */}
         <div className="top-stats-row">
             <div className="courses-card">
-            <h4>Total Courses</h4>
-            <h1>{totalCourses}</h1>
+              <h4>Total Courses</h4>
+              <h1>{totalCourses}</h1>
             </div>
 
             <div className="chart-boxx small-chart">
-            <h4>Completion Overview</h4>
-            <Doughnut className="dohnut" data={courseDoughnutData} options={courseDoughnutOptions} />
+              <h4>Completion Overview</h4>
+              <Doughnut className="dohnut" data={courseDoughnutData} options={courseDoughnutOptions} />
             </div>
+            <div className="chart-box2">
+              <h4>Lesson Completion Log</h4>
+              <ul style={{ listStyle: "none", padding: 0 }}>
+                {progressData.map((p, idx) => (
+                  <li key={idx} style={{ marginBottom: "10px" }}>
+                    <strong>{p.lessonName}</strong> — <em>{new Date(p.date).toLocaleDateString()}</em> — {p.courseName}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
         </div>
 
       {/* Second row tiny stats */}
@@ -143,16 +185,6 @@ export default function StatsSection() {
           <Line data={lineData} />
         </div>
 
-        <div className="chart-box">
-          <h4>Lesson Completion Log</h4>
-          <ul style={{ listStyle: "none", padding: 0 }}>
-            {progressData.map((p, idx) => (
-              <li key={idx} style={{ marginBottom: "10px" }}>
-                <strong>{p.lessonName}</strong> — <em>{new Date(p.date).toLocaleDateString()}</em> — {p.courseName}
-              </li>
-            ))}
-          </ul>
-        </div>
       </div>
     </div>
   );
