@@ -20,4 +20,4 @@ app.use("/api/auth", authRoutes);
 app.use('/api/reviews', reviewsRouter);
 app.use("/api/progress", progressRoutes);
 
-app.listen(4000, () => console.log("🚀 Server running on http://localhost:5000"));
+app.listen(4000, () => console.log("🚀 Server running on http://localhost:4000"));
