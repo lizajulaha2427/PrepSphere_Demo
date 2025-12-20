@@ -415,3 +415,38 @@ scrollbar-width: none;
   text-align: justify;
   text-align: left;
 }
+.quiz-stats-section {
+  margin-top: 2rem;
+}
+
+.stats-cards {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.stat-card {
+  background: #f0f0f0;
+  padding: 1rem;
+  border-radius: 10px;
+  flex: 1;
+  text-align: center;
+}
+
+.improvement-logs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.log-card {
+  background: #fff3e0;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 5px solid #ffa500;
+}
+.chart-box2 ul {
+  flex: 1;                  /* take remaining height */
+  overflow-y: auto;         /* enable vertical scroll */
+  padding-right: 6px;       /* space for scrollbar */
+}

@@ -4,6 +4,7 @@ import "./DashboardPage.css";
 import { AuthContext } from "../../Context/AuthContext";
 import { HelpCircle, LogOut, Route, Star, Podcast, BookOpenText } from "lucide-react";
 import StatsSection from "./StatsSection";
+import QuizStatsSection from "./QuizStatsSection";
 
 // 🔹 Function to extract YouTube video ID from any URL
 function extractVideoId(url) {
@@ -191,9 +192,10 @@ export default function DashboardPage() {
   const [msg, setMsg] = useState("");
   const defaultImg = "https://img.freepik.com/premium-vector/vector-flat-illustration-grayscale-avatar-user-profile-person-icon-gender-neutral-silhouette-profile-picture-suitable-social-media-profiles-icons-screensavers-as-templatex9xa_719432-2210.jpg?semt=ais_hybrid&w=740&q=80";
   const [profileImg, setProfileImg] = useState(defaultImg);
-
   const userKeyId = user?.email || user?.id || "guest";
   const storageKey = `profileImg_${userKeyId}`;
+  const token = localStorage.getItem("token");
+
   // const modules = [
   //   { name: "Roadmaps", path: "/roadmaps" },
   //   { name: "Reviews", path: "/reviews" },
@@ -298,9 +300,14 @@ export default function DashboardPage() {
           <button className="normal-btn" onClick={() => window.location.href = "http://localhost:8080"}>
             <Route size={18} /> RoadMaps
           </button>
-          <button className="normal-btn" onClick={() => window.location.href = "http://localhost:5500"}>
-            <Podcast size={18} /> Mock Interview
-          </button>
+          <button
+  className="normal-btn"
+  onClick={() => window.location.href = `http://localhost:5500?token=${token}`}
+>
+  <Podcast size={18} /> Mock Interview
+</button>
+
+
           <button className="normal-btn" onClick={() => navigate("/courses")}>
             <BookOpenText size={18} /> Courses
           </button>
@@ -323,6 +330,7 @@ export default function DashboardPage() {
       {/* MAIN CONTENT */}
       <main className="main">
   <StatsSection />
+  <QuizStatsSection/>
         {/* <h2>Your Modules</h2>
 
         <div className="modules-grid">

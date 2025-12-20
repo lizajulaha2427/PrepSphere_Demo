@@ -97,7 +97,7 @@ export default function StatsSection() {
     datasets: [
       {
         data: [completedCourses, totalCourses - completedCourses],
-        backgroundColor: ["#28a745", "#FFD93D"],
+        backgroundColor: ["#ffe7ab", "#F89880"],
         borderWidth: 0,
       },
     ],
@@ -135,7 +135,7 @@ export default function StatsSection() {
       {
         label: "Course Completion %",
         data: Object.values(courseProgress),
-        backgroundColor: "rgba(54,162,235,0.6)",
+backgroundColor: "#5797b4",
       },
     ],
   };

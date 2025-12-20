@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React, { useState , useContext} from "react";
 import { Laptop, Braces, Map, Briefcase, Sparkles, ArrowLeft } from "lucide-react";
 import "./Register.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { AuthContext } from "../../Context/AuthContext";
+
 
 const Register = () => {
   const [step, setStep] = useState(0); // 0 = video, 1 = goals, 2 = years, 3 = register
   const [selectedGoal, setSelectedGoal] = useState("");
   const [selectedYears, setSelectedYears] = useState([]);
   const [loading, setLoading] = useState(false);
-
+  const [otpStep, setOtpStep] = useState(false);
+  const [otp, setOtp] = useState("");
+  const [emailForOtp, setEmailForOtp] = useState("");
+const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const goals = [
@@ -41,34 +46,59 @@ const Register = () => {
 
   // Submit form
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const fullName = e.target[0].value;
-    const email = e.target[1].value;
-    const password = e.target[2].value;
+  const fullName = e.target[0].value;
+  const email = e.target[1].value;
+  const password = e.target[2].value;
 
-    const userData = {
-      fullName,
-      email,
-      password,
-      goal: selectedGoal,
-      years: selectedYears,
-    };
-
-   try {
-  setLoading(true);
-  const res = await axios.post("http://localhost:4000/api/auth/register", userData);
-
-  alert("✅ Registered successfully!");
-  // store server response (better than raw userData)
-  localStorage.setItem("user", JSON.stringify(res.data));
-  navigate("/"); // redirect to home
-} catch (err) {
-      alert(err.response?.data?.msg || "Registration failed");
-    } finally {
-      setLoading(false);
-    }
+  const userData = {
+    fullName,
+    email,
+    password,
+    goal: selectedGoal,
+    years: selectedYears,
   };
+
+  try {
+    setLoading(true);
+    await axios.post("http://localhost:4000/api/auth/register", userData);
+
+    alert("📩 OTP sent to your email");
+    setEmailForOtp(email);
+    setOtpStep(true); // 👈 move to OTP screen
+  } catch (err) {
+    alert(err.response?.data?.msg || "Registration failed");
+  } finally {
+    setLoading(false);
+  }
+};
+const verifyRegisterOtp = async () => {
+  try {
+    setLoading(true);
+
+    const res = await axios.post("http://localhost:4000/api/auth/verify-otp", {
+      email: emailForOtp,
+      otp,
+      purpose: "register",
+    });
+
+    // ✅ backend should return { msg, token, user }
+    const { token, user } = res.data;
+
+    // ✅ store token in localStorage
+    localStorage.setItem("token", token);
+
+    // ✅ update user context
+    login(user);
+
+    navigate("/"); // redirect to dashboard
+  } catch (err) {
+    alert(err.response?.data?.msg || "OTP verification failed");
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className="register-screen">
@@ -154,19 +184,39 @@ const Register = () => {
       )}
 
       {/* STEP 3: Register Page */}
-      {step === 3 && (
-        <div className="options-section">
-          <h2 className="options-title">Create Your Account</h2>
-          <form onSubmit={handleSubmit} className="register-form">
-            <input type="text" placeholder="Full Name" required />
-            <input type="email" placeholder="Email" required />
-            <input type="password" placeholder="Password" required />
-            <button type="submit" className="continue-btn" disabled={loading}>
-              {loading ? "Registering..." : "Register"}
-            </button>
-          </form>
-        </div>
-      )}
+      {step === 3 && !otpStep && (
+  <div className="options-section">
+    <h2 className="options-title">Create Your Account</h2>
+    <form onSubmit={handleSubmit} className="register-form">
+      <input type="text" placeholder="Full Name" required />
+      <input type="email" placeholder="Email" required />
+      <input type="password" placeholder="Password" required />
+      <button type="submit" className="continue-btn" disabled={loading}>
+        {loading ? "Registering..." : "Register"}
+      </button>
+    </form>
+  </div>
+)}
+
+{otpStep && (
+  <div className="options-section">
+    <h2 className="options-title">Verify Email</h2>
+    <input className="login-inp"
+      type="text"
+      placeholder="Enter OTP"
+      value={otp}
+      onChange={(e) => setOtp(e.target.value)}
+    />
+    <button
+      className="continue-btn"
+      onClick={verifyRegisterOtp}
+      disabled={loading}
+    >
+      {loading ? "Verifying..." : "Verify OTP"}
+    </button>
+  </div>
+)}
+
     </div>
   );
 };

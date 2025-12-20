@@ -158,3 +158,14 @@ html, body, #root {
   border-color: #22c55e;
   outline: none;
 }
+.login-inp{
+  width: 40%;
+  padding: 10px 15px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: 2px solid #ddd;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  margin-bottom: 15px;
+}
