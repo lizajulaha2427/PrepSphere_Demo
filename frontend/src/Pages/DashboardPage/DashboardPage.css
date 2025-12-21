@@ -450,3 +450,12 @@ scrollbar-width: none;
   overflow-y: auto;         /* enable vertical scroll */
   padding-right: 6px;       /* space for scrollbar */
 }
+.chart-box {
+  height: 330px;            /* give real height */
+}
+
+.chart-box canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+

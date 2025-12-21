@@ -83,12 +83,15 @@ export default function StatsSection() {
   const totalCourses = 9;
   const totalLessons = progressData.length;
 
+
   // Course progress (latest % per course)
   const courseProgress = {};
   progressData.forEach(p => {
     courseProgress[p.courseName] = Math.max(courseProgress[p.courseName] || 0, p.progress);
   });
-
+const wrappedLabels = Object.keys(courseProgress).map(label =>
+  label.split(" ")
+);
   const completedCourses = Object.values(courseProgress).filter(p => p === 100).length;
 
   // Half doughnut chart
@@ -130,16 +133,56 @@ export default function StatsSection() {
 
   // Bar chart
   const barData = {
-    labels: Object.keys(courseProgress),
-    datasets: [
-      {
-        label: "Course Completion %",
-        data: Object.values(courseProgress),
-backgroundColor: "#5797b4",
-      },
-    ],
-  };
+  labels: wrappedLabels,
+  datasets: [
+    {
+      label: "Course Completion %",
+      data: Object.values(courseProgress),
+      backgroundColor: "#5797b4",
+      borderRadius: 6,
+      barThickness: 45,
+    },
+  ],
+};
 
+const barOptions = {
+  responsive: true,
+  maintainAspectRatio: false,
+  scales: {
+    x: {
+      ticks: {
+        maxRotation: 0,
+        minRotation: 0,
+        autoSkip: false,
+        font: {
+          size: 12,
+          family: "Inter",
+        },
+      },
+      grid: {
+        display: false,
+      },
+    },
+    y: {
+      beginAtZero: true,
+      max: 100,
+      ticks: {
+        stepSize: 20,
+      },
+    },
+  },
+  plugins: {
+    legend: {
+      display: false,
+    },
+    tooltip: {
+      callbacks: {
+        title: (items) =>
+          items[0].label.replaceAll(",", " "),
+      },
+    },
+  },
+};
   return (
     <div className="stats-section">
 
@@ -177,7 +220,8 @@ backgroundColor: "#5797b4",
       <div className="charts">
         <div className="chart-box">
           <h4>Course-wise Progress</h4>
-          <Bar data={barData} />
+          <Bar data={barData} options={barOptions} />
+
         </div>
 
         <div className="chart-box">

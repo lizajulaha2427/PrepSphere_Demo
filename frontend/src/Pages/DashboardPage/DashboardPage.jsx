@@ -297,7 +297,7 @@ export default function DashboardPage() {
         </div>
         <div className="profile-box">
           <h3>Menu</h3>
-          <button className="normal-btn" onClick={() => window.location.href = "http://localhost:8080"}>
+          <button className="normal-btn" onClick={() => window.location.href = "https://prepsphereroadmap.onrender.com"}>
             <Route size={18} /> RoadMaps
           </button>
           <button
