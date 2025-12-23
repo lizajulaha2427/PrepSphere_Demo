@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"; // ✅ add useEffect
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { courses } from "../../data/coursesData";
 import LessonItem from "./LessonItem";
@@ -10,7 +10,6 @@ const CoursePage = () => {
 
   const [completed, setCompleted] = useState([]);
 
-  // ✅ Fetch saved progress when page loads
   useEffect(() => {
     const fetchProgress = async () => {
       try {
