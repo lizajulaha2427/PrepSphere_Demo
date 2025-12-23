@@ -10,7 +10,6 @@ dotenv.config();
 const router = express.Router();
 const JWT_SECRET = process.env.JWT_SECRET;
 
-// REGISTER
 router.post("/register", async (req, res) => {
   try {
     const { fullName, email, password, goal, years } = req.body;
@@ -45,8 +44,6 @@ router.post("/register", async (req, res) => {
 
 
 
-// LOGIN
-// LOGIN
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -100,26 +97,22 @@ router.post("/verify-otp", async (req, res) => {
     if (user.otpExpiry < Date.now())
       return res.status(400).json({ msg: "OTP expired" });
 
-    // ✅ Mark user as verified if it's registration OTP
     if (purpose === "register") {
       user.isVerified = true;
     }
 
-    // Clear OTP fields
     user.otp = null;
     user.otpExpiry = null;
     user.otpPurpose = undefined;
 
     await user.save();
 
-    // 🔹 Generate JWT token
     const token = jwt.sign(
       { email: user.email, _id: user._id },
       JWT_SECRET,
       { expiresIn: "1d" }
     );
 
-    // 🔹 Send user info + token to frontend
     res.json({
       msg: "OTP verified successfully",
       token,
@@ -156,8 +149,6 @@ router.post("/reset-password", async (req, res) => {
 });
 
 
-// ❌ REMOVE THIS — not needed anymore
-// router.get("/videos/:userId", ... )
 router.post("/change-password", async (req, res) => {
   try {
     const { email, newPassword } = req.body;
