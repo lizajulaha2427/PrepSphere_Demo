@@ -34,7 +34,7 @@ const verifyResetOtp = async () => {
       purpose: "reset",
     });
     alert("✅ OTP verified");
-    setForgot(true); // move to password reset
+    setForgot(true);
   } catch (err) {
     alert(err.response?.data?.msg || "OTP verification failed");
   } finally {
@@ -70,7 +70,6 @@ const handleLogin = async (e) => {
     if (userData.user) {
       localStorage.setItem("user", JSON.stringify(userData.user));
 
-      // ✅ update context so dashboard gets updated
       if (onLogin) onLogin(userData.user);
     }
 
